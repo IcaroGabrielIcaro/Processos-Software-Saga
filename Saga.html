@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Saga — Processo de Software</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Tailwind CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Fontes -->
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;800&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IM+Fell+Double+Pica:ital@0;1&family=Macondo+Swash+Caps&family=MedievalSharp&family=Metal+Mania&family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <style>
+        @font-face {
+            font-family: 'BerkahiBlackletter';
+            src: url('fonts/berkahi_blackletter/BerkahiBlackletter.ttf') format('truetype');
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        @font-face {
+            font-family: 'EnchantedLand';
+            src: url('fonts/enchanted_land/EnchantedLand.otf') format('truetype');
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        @font-face {
+            font-family: 'Magnificent';
+            src: url('fonts/magnificent_2/MagnificentPersonalUse.ttf') format('truetype');
+            font-weight: normal;
+            font-style: normal;
+        }
+    </style>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        medieval1: ['BerkahiBlackletter', 'serif'],
+                        medieval2: ['EnchantedLand', 'serif'],
+                        medieval3: ['Magnificent', 'serif'],
+                        epic: ['Cinzel', 'serif'],
+                        base: ['Inter', 'sans-serif']
+                    },
+                    colors: {
+                        gold: '#d4af37',
+                        dark: '#0f0f0f'
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-dark text-gray-200 font-base">
+
+    <!-- HERO -->
+    <header class="relative h-[60vh] w-full">
+        <!-- Imagem -->
+        <img 
+            src="https://t4.ftcdn.net/jpg/05/42/83/97/360_F_542839792_ibcOC8l2d3NGl1yMAY8wFiQwn87Xo1yq.jpg"
+            alt="Saga background"
+            class="absolute inset-0 w-full h-full object-cover"
+        />
+
+        <!-- Overlay -->
+        <div class="absolute inset-0 bg-gradient-to-l from-black/30 to-black/90"></div>
+
+        <!-- Conteúdo -->
+        <div class="relative h-full flex items-center justify-end px-10 md:px-24">
+            <div class="text-right max-w-lg">
+                <h1 class="font-medieval3 text-5xl md:text-9xl text-gold tracking-widest drop-shadow-lg">
+                    Saga
+                </h1>
+                <p class="mt-4 text-lg opacity-90">
+                    Um processo de software inspirado em jornadas épicas
+                </p>
+            </div>
+        </div>
+    </header>
+
+    <!-- CONTEÚDO -->
+    <main class="space-y-20 py-20">
+
+        <section class="px-8 md:px-24">
+            <h2 class="font-epic text-3xl text-gold mb-6">
+                Introdução
+            </h2>
+
+            <p class="max-w-4xl leading-relaxed text-lg mb-6">
+                O <span class="text-gold font-semibold">Saga</span> é um processo de desenvolvimento de software
+                inspirado em metodologias ágeis, desenvolvido para orientar projetos acadêmicos de forma
+                estruturada, colaborativa e iterativa. Ele organiza o trabalho da equipe desde o entendimento
+                inicial das necessidades do cliente até a entrega e validação contínua do sistema, mantendo
+                foco na qualidade técnica, no alinhamento com o cliente e na evolução constante do produto.
+            </p>
+
+            <p class="max-w-4xl leading-relaxed text-lg mb-6">
+                O processo é estruturado em ciclos sucessivos, nos quais requisitos são compreendidos,
+                documentados, priorizados, implementados, validados e ajustados conforme o feedback obtido.
+                Cada ciclo representa um avanço na jornada do projeto, permitindo entregas incrementais
+                e reduzindo riscos ao longo do desenvolvimento.
+            </p>
+
+            <p class="max-w-4xl leading-relaxed text-lg">
+                No Saga, os participantes assumem papéis bem definidos, inspirados em práticas consolidadas
+                de processos ágeis, mas apresentados como funções essenciais dentro de uma jornada coletiva.
+                Cada papel contribui de forma estratégica ao longo do ciclo do projeto, atuando de maneira
+                integrada para que decisões técnicas, visuais e funcionais conduzam o sistema na direção
+                correta, mantendo alinhamento com os objetivos do cliente e com os princípios estabelecidos
+                pelo próprio processo.
+            </p>
+        </section>
+
+        <section class="px-8 md:px-24 space-y-16">
+
+            <h2 class="font-epic text-4xl text-gold">
+                Papéis da Saga
+            </h2>
+
+            <p class="max-w-4xl leading-relaxed text-lg">
+                No processo Saga, cada integrante do time assume um papel específico dentro da jornada
+                de desenvolvimento. Esses papéis são inspirados em práticas consolidadas de metodologias
+                ágeis, mas apresentados de forma temática para reforçar a ideia de colaboração,
+                responsabilidade compartilhada e progressão contínua ao longo da aventura do projeto.
+            </p>
+
+            <!-- ARAUTO DA MISSÃO -->
+            <div>
+                <h3 class="font-epic text-2xl text-gold mb-2">
+                    Arauto da Missão (Representante do Cliente)
+                </h3>
+                <p class="max-w-4xl mb-4">
+                    É o membro do time que possui maior proximidade com o cliente e compreende
+                    claramente suas necessidades, prioridades e expectativas em relação ao sistema.
+                    Atua como a principal ponte entre o cliente e a equipe de desenvolvimento.
+                </p>
+
+                <h4 class="font-semibold mb-2">Responsabilidades</h4>
+                <ul class="list-disc list-inside space-y-1 max-w-4xl">
+                    <li>Centralizar o entendimento dos requisitos do cliente</li>
+                    <li>Traduzir expectativas do cliente para o time técnico</li>
+                    <li>Realizar testes funcionais do sistema</li>
+                    <li>Validar se o produto está alinhado com o solicitado</li>
+                    <li>Avaliar design, fluxo e comportamento geral da aplicação</li>
+                    <li>Aprovar entregas ou solicitar ajustes conforme a missão definida</li>
+                </ul>
+            </div>
+
+            <!-- ARQUITETO DAS RUNAS -->
+            <div>
+                <h3 class="font-epic text-2xl text-gold mb-2">
+                    Mago do Figma (Designer Técnico)
+                </h3>
+                <p class="max-w-4xl mb-4">
+                    Desenvolvedor com foco principal na definição da identidade visual do sistema,
+                    sendo responsável por garantir consistência estética e boa experiência do usuário
+                    ao longo de toda a jornada do projeto.
+                </p>
+
+                <h4 class="font-semibold mb-2">Responsabilidades</h4>
+                <ul class="list-disc list-inside space-y-1 max-w-4xl">
+                    <li>Criar layouts e designs da aplicação</li>
+                    <li>Definir padrões visuais (cores, fontes, espaçamentos e componentes)</li>
+                    <li>Validar se a implementação segue o design estabelecido</li>
+                    <li>Apoiar decisões relacionadas à experiência do usuário</li>
+                </ul>
+            </div>
+
+            <!-- MESTRE DA FACHADA -->
+            <div>
+                <h3 class="font-epic text-2xl text-gold mb-2">
+                    Mestre da Fachada (Líder Técnico de Front-end)
+                </h3>
+                <p class="max-w-4xl mb-4">
+                    Responsável por garantir a organização, qualidade e consistência estrutural
+                    do código front-end, assegurando que a interface do sistema evolua de forma
+                    sustentável e padronizada.
+                </p>
+
+                <h4 class="font-semibold mb-2">Responsabilidades</h4>
+                <ul class="list-disc list-inside space-y-1 max-w-4xl">
+                    <li>Definir e validar a organização de pastas e arquivos do front-end</li>
+                    <li>Garantir aderência aos padrões de código definidos</li>
+                    <li>Avaliar legibilidade, qualidade e consistência do código</li>
+                    <li>Apoiar decisões técnicas relacionadas ao front-end</li>
+                </ul>
+            </div>
+
+            <!-- GUARDIÃO DO NÚCLEO -->
+            <div>
+                <h3 class="font-epic text-2xl text-gold mb-2">
+                    Guardião do Núcleo (Líder Técnico de Back-end)
+                </h3>
+                <p class="max-w-4xl mb-4">
+                    Desenvolvedor responsável pela estrutura, organização e qualidade do código
+                    do servidor, garantindo clareza nas regras de negócio e manutenção do sistema.
+                </p>
+
+                <h4 class="font-semibold mb-2">Responsabilidades</h4>
+                <ul class="list-disc list-inside space-y-1 max-w-4xl">
+                    <li>Definir e validar a organização do projeto back-end</li>
+                    <li>Garantir padrões de arquitetura e boas práticas</li>
+                    <li>Avaliar clareza e manutenção das regras de negócio</li>
+                    <li>Apoiar decisões técnicas relacionadas ao back-end</li>
+                </ul>
+            </div>
+
+            <!-- FORJADOR DE PORTAIS -->
+            <div>
+                <h3 class="font-epic text-2xl text-gold mb-2">
+                    Forjador de Portais (Líder de Operações)
+                </h3>
+                <p class="max-w-4xl mb-4">
+                    Responsável pela preparação da infraestrutura necessária para que o sistema
+                    possa ser executado e disponibilizado, garantindo estabilidade e fluidez
+                    entre os ambientes de desenvolvimento e produção.
+                </p>
+
+                <h4 class="font-semibold mb-2">Responsabilidades</h4>
+                <ul class="list-disc list-inside space-y-1 max-w-4xl">
+                    <li>Configurar e gerenciar ambientes de execução</li>
+                    <li>Analisar e definir a infraestrutura do sistema</li>
+                    <li>Definir modelo de implantação</li>
+                    <li>Implementar e manter pipelines de CI/CD</li>
+                </ul>
+            </div>
+
+            <!-- ANCIÃO DA ORDEM -->
+            <div>
+                <h3 class="font-epic text-2xl text-gold mb-2">
+                    Ancião da Ordem (Revisor Sênior / Mentor)
+                </h3>
+                <p class="max-w-4xl mb-4">
+                    Figura mais experiente da equipe, responsável por orientar e validar as decisões
+                    técnicas e metodológicas, promovendo aprendizado contínuo e evolução do processo.
+                </p>
+
+                <h4 class="font-semibold mb-2">Responsabilidades</h4>
+                <ul class="list-disc list-inside space-y-1 max-w-4xl">
+                    <li>Avaliar soluções técnicas de forma geral</li>
+                    <li>Identificar pontos de melhoria no código e no processo</li>
+                    <li>Fornecer feedback e direcionamentos ao time</li>
+                    <li>Garantir boas práticas sem interferir diretamente na implementação</li>
+                </ul>
+            </div>
+
+            <!-- COMPANHEIROS DA JORNADA -->
+            <div>
+                <h3 class="font-epic text-2xl text-gold mb-2">
+                    Companheiros da Jornada (Desenvolvedores)
+                </h3>
+                <p class="max-w-4xl mb-4">
+                    Todos os membros ativos do time que participam diretamente da construção
+                    do sistema, compartilhando a responsabilidade pela evolução do projeto.
+                </p>
+
+                <h4 class="font-semibold mb-2">Responsabilidades</h4>
+                <ul class="list-disc list-inside space-y-1 max-w-4xl">
+                    <li>Implementar funcionalidades do sistema</li>
+                    <li>Corrigir problemas identificados</li>
+                    <li>Colaborar com o restante da equipe</li>
+                    <li>Seguir os padrões definidos pelo processo</li>
+                    <li>Contribuir para a evolução contínua do projeto</li>
+                </ul>
+            </div>
+
+        </section>
+
+        <section class="px-8 md:px-24">
+            <h2 class="font-epic text-3xl text-gold mb-6">
+                Visão Geral
+            </h2>
+            <p class="max-w-3xl leading-relaxed text-lg">
+                O Saga é um processo de software inspirado em jogos de RPG e Dungeons & Dragons,
+                onde cada projeto é tratado como uma jornada épica. Cada fase representa
+                um momento da aventura, com desafios, decisões e evolução contínua do time.
+            </p>
+        </section>
+
+        <section class="px-8 md:px-24">
+            <h2 class="font-epic text-3xl text-gold mb-6">
+                Fase 1 — O Chamado à Aventura
+            </h2>
+            <p class="max-w-3xl leading-relaxed text-lg">
+                O problema surge, a missão é apresentada e o time é convocado.
+                Nesta fase são definidos os objetivos, os riscos e o escopo inicial,
+                estabelecendo o propósito da jornada.
+            </p>
+        </section>
+
+        <section class="px-8 md:px-24">
+            <h2 class="font-epic text-3xl text-gold mb-6">
+                Fase 2 — Formação da Guilda
+            </h2>
+            <p class="max-w-3xl leading-relaxed text-lg">
+                Os papéis são distribuídos, responsabilidades assumidas
+                e o grupo se organiza estrategicamente para enfrentar
+                os desafios técnicos e organizacionais do projeto.
+            </p>
+        </section>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="text-center py-8 text-sm opacity-60 bg-black">
+        Saga — Processo de Software • Projeto Acadêmico
+    </footer>
+
+</body>
+</html>
