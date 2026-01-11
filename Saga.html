@@ -47,6 +47,24 @@
             border-radius: 1rem;
             padding: 2rem;
             transition: all 0.5s ease;
+            display: flex;
+            gap: 2rem;
+            align-items: flex-start;
+        }
+
+        .role-card-image {
+            flex-shrink: 0;
+            width: 200px;
+            height: 300px;
+            border: 2px solid rgba(218, 165, 32, 0.6);
+            border-radius: 0.5rem;
+            object-fit: cover;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5);
+        }
+
+        .role-card-content {
+            flex: 1;
+            min-width: 0;
         }
 
         .main-card {
@@ -96,6 +114,7 @@
                 title: "Arauto da Missão",
                 subtitle: "(Representante do Cliente)",
                 description: "É o membro do time que possui maior proximidade com o cliente e compreende claramente suas necessidades, prioridades e expectativas em relação ao sistema.",
+                image: "images/arauto.png",
                 responsibilities: [
                     "Centralizar o entendimento dos requisitos do cliente",
                     "Traduzir expectativas do cliente para o time",
@@ -108,6 +127,7 @@
                 title: "Mago do Figma",
                 subtitle: "(Designer Técnico)",
                 description: "Responsável por definir a identidade visual do sistema e garantir consistência estética durante toda a jornada.",
+                image: "images/mago.png",
                 responsibilities: [
                     "Criar layouts e designs",
                     "Definir padrões visuais",
@@ -119,6 +139,7 @@
                 title: "Mestre da Fachada",
                 subtitle: "(Líder Front-end)",
                 description: "Garante organização, qualidade e sustentabilidade do código front-end.",
+                image: "images/mestre.png",
                 responsibilities: [
                     "Definir estrutura do front",
                     "Garantir padrões de código",
@@ -130,6 +151,7 @@
                 title: "Guardião do Núcleo",
                 subtitle: "(Líder Back-end)",
                 description: "Responsável pela estrutura, organização e qualidade do código do servidor.",
+                image: "images/guradiao.png",
                 responsibilities: [
                     "Definir estrutura do back-end",
                     "Garantir boas práticas",
@@ -141,6 +163,7 @@
                 title: "Forjador de Portais",
                 subtitle: "(Líder de Operações)",
                 description: "Prepara a infraestrutura para execução e disponibilização do sistema.",
+                image: "images/portal1.png",
                 responsibilities: [
                     "Configurar ambientes",
                     "Definir infraestrutura",
@@ -151,6 +174,7 @@
                 title: "Ancião da Ordem",
                 subtitle: "(Revisor Sênior / Mentor)",
                 description: "Figura experiente que orienta e valida decisões técnicas e metodológicas.",
+                image: "images/ancia.png",
                 responsibilities: [
                     "Avaliar soluções técnicas",
                     "Identificar melhorias",
@@ -161,6 +185,7 @@
                 title: "Companheiros da Jornada",
                 subtitle: "(Desenvolvedores)",
                 description: "Membros ativos do time que constroem o sistema colaborativamente.",
+                image: "images/time1.png",
                 responsibilities: [
                     "Implementar funcionalidades",
                     "Corrigir problemas",
@@ -180,19 +205,22 @@
 
             element.style.opacity = 1;
             element.innerHTML = `
-                <h3 class="font-epic text-2xl text-gold mb-1">
-                    ${role.title}
-                </h3>
-                <p class="italic mb-4">${role.subtitle}</p>
+                <img src="${role.image}" alt="${role.title}" class="role-card-image" />
+                <div class="role-card-content">
+                    <h3 class="font-epic text-2xl text-gold mb-1">
+                        ${role.title}
+                    </h3>
+                    <p class="italic mb-4">${role.subtitle}</p>
 
-                <p class="mb-4 max-w-3xl">
-                    ${role.description}
-                </p>
+                    <p class="mb-4 text-sm">
+                        ${role.description}
+                    </p>
 
-                <h4 class="font-semibold mb-2">Responsabilidades</h4>
-                <ul class="list-disc list-inside space-y-1">
-                    ${role.responsibilities.map(r => `<li>${r}</li>`).join("")}
-                </ul>
+                    <h4 class="font-semibold mb-2 text-sm">Responsabilidades</h4>
+                    <ul class="list-disc list-inside space-y-1 text-sm">
+                        ${role.responsibilities.map(r => `<li>${r}</li>`).join("")}
+                    </ul>
+                </div>
             `;
         }
 
@@ -226,7 +254,7 @@
     <!-- HERO -->
     <header class="relative h-[60vh] w-full">
         <!-- Imagem -->
-        <img 
+        <img
             src="https://t4.ftcdn.net/jpg/05/42/83/97/360_F_542839792_ibcOC8l2d3NGl1yMAY8wFiQwn87Xo1yq.jpg"
             alt="Saga background"
             class="absolute inset-0 w-full h-full object-cover"
