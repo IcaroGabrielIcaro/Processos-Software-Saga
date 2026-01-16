@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Saga</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Blaka+Hollow&display=swap" rel="stylesheet">
+
+    <link href="https://fonts.googleapis.com/css2?family=Berkshire+Swash&family=Blaka+Hollow&display=swap" rel="stylesheet">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        BlakaHollow: ['Blaka Hollow', 'cursive'],
+                        BerkshireSwash: ['Berkshire Swash', 'cursive']
+                    },
+                    colors: {
+                        gold: '#d4af37',
+                        dark: '#0f0f0f'
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-[#E9E9E9] text-[#0D1219] font-base">
+    <header class="relative h-[60vh] w-full">
+        <img src="images/background/banner_01.png" alt="Saga Hero Image"
+            class="absolute inset-0 w-full h-full object-cover scale-x-[-1]" />
+
+        <div class="relative h-full flex items-center justify-end px-22 md:px-48">
+            <div class="text-right max-w-lg">
+                <h1 class="font-BlakaHollow text-[256px] text-gold drop-shadow-lg leading-none">
+                    Saga
+                </h1>
+
+                <p class="mt-4 text-[36px] text-[#E9E9E9] drop-shadow-md font-BerkshireSwash">
+                    Uma jornada pelo conhecimento dos processos de software
+                </p>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="relative h-[310px] w-full mt-[82px]">
+            <img src="images/background/banner_02.jpg" alt="Saga Geral Image"
+            class="inset-0 w-full h-full object-cover object-[center_40%]" />
+
+            <h1 class="font-BlakaHollow text-[128px] drop-shadow-lg leading-none text-center my-10">
+                Prólogo
+            </h1>
+
+            <div>
+                <div>
+
+                </div>
+                <div>
+
+                </div>
+                <div>
+                    
+                </div>
+            </div>
+        </section>
+    </main>
+</body>
+</html>
