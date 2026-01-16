@@ -10,29 +10,17 @@
     <script src="https://cdn.tailwindcss.com"></script>
 
     <!-- Fontes -->
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;800&family=Inter:wght@300;400;600&display=swap"
-        rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=IM+Fell+Double+Pica:ital@0;1&family=Macondo+Swash+Caps&family=MedievalSharp&family=Metal+Mania&family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap"
+
+    <!-- fonte inicio massa -->
+    <link href="https://fonts.googleapis.com/css2?family=Blaka+Hollow&display=swap" rel="stylesheet">
+
+    <!-- fonte conteudo -->
+    <link href="https://fonts.googleapis.com/css2?family=Berkshire+Swash&family=Blaka+Hollow&display=swap"
         rel="stylesheet">
 
     <style>
-        @font-face {
-            font-family: 'BerkahiBlackletter';
-            src: url('fonts/berkahi_blackletter/BerkahiBlackletter.ttf') format('truetype');
-            font-weight: normal;
-            font-style: normal;
-        }
-
-        @font-face {
-            font-family: 'EnchantedLand';
-            src: url('fonts/enchanted_land/EnchantedLand.otf') format('truetype');
-            font-weight: normal;
-            font-style: normal;
-        }
-
         @font-face {
             font-family: 'Magnificent';
             src: url('fonts/magnificent_2/MagnificentPersonalUse.ttf') format('truetype');
@@ -44,10 +32,9 @@
             position: absolute;
             width: 60%;
             max-width: 820px;
-            height: auto;
             background: radial-gradient(circle at 20% 20%, rgba(255, 215, 128, 0.06), transparent 45%),
-                        radial-gradient(circle at 80% 0%, rgba(255, 255, 255, 0.06), transparent 35%),
-                        linear-gradient(135deg, rgba(35, 25, 12, 0.9), rgba(20, 15, 8, 0.9));
+                radial-gradient(circle at 80% 0%, rgba(255, 255, 255, 0.06), transparent 35%),
+                linear-gradient(135deg, rgba(35, 25, 12, 0.9), rgba(20, 15, 8, 0.9));
             backdrop-filter: blur(10px);
             border: 2px solid rgba(212, 175, 55, 0.8);
             border-radius: 18px;
@@ -57,7 +44,6 @@
             gap: 1.5rem;
             align-items: flex-start;
             box-shadow: 0 25px 60px rgba(0, 0, 0, 0.75), 0 0 0 6px rgba(0, 0, 0, 0.55), 0 0 0 9px rgba(212, 175, 55, 0.15);
-            position: absolute;
             overflow: hidden;
         }
 
@@ -92,21 +78,6 @@
             flex: 1;
             min-width: 0;
             position: relative;
-        }
-
-        .card-ribbon {
-            position: absolute;
-            top: -12px;
-            left: -26px;
-            background: linear-gradient(90deg, #a96b1f, #d4af37, #a96b1f);
-            color: #0f0f0f;
-            font-weight: 800;
-            padding: 0.35rem 1.6rem;
-            letter-spacing: 0.08em;
-            text-transform: uppercase;
-            border: 2px solid #3a240a;
-            box-shadow: 0 8px 14px rgba(0, 0, 0, 0.45);
-            clip-path: polygon(0 0, 100% 0, 95% 100%, 0 100%);
         }
 
         .card-title-row {
@@ -183,11 +154,8 @@
             theme: {
                 extend: {
                     fontFamily: {
-                        medieval1: ['BerkahiBlackletter', 'serif'],
-                        medieval2: ['EnchantedLand', 'serif'],
-                        medieval3: ['Magnificent', 'serif'],
-                        epic: ['Cinzel', 'serif'],
-                        base: ['Inter', 'sans-serif']
+                        BlakaHollow: ['Blaka Hollow', 'cursive'],
+                        BerkshireSwash: ['Berkshire Swash', 'cursive']
                     },
                     colors: {
                         gold: '#d4af37',
@@ -293,7 +261,6 @@
 
             element.style.opacity = 1;
             element.innerHTML = `
-                <div class="card-ribbon"></div>
                 <img src="${role.image}" alt="${role.title}" class="role-card-image" />
                 <div class="role-card-content">
                     <div class="card-title-row">
@@ -354,30 +321,228 @@
 
     <!-- HERO -->
     <header class="relative h-[60vh] w-full">
-        <!-- Imagem -->
-        <img
-            src="https://t4.ftcdn.net/jpg/05/42/83/97/360_F_542839792_ibcOC8l2d3NGl1yMAY8wFiQwn87Xo1yq.jpg"
-            alt="Saga background"
-            class="absolute inset-0 w-full h-full object-cover"
-        />
-        <img src="https://t4.ftcdn.net/jpg/05/42/83/97/360_F_542839792_ibcOC8l2d3NGl1yMAY8wFiQwn87Xo1yq.jpg"
-            alt="Saga background" class="absolute inset-0 w-full h-full object-cover" />
+        <img src="images/background/banner_01.png" alt="Saga Hero Image"
+            class="absolute inset-0 w-full h-full object-cover scale-x-[-1]" />
 
         <!-- Overlay -->
-        <div class="absolute inset-0 bg-gradient-to-l from-black/30 to-black/90"></div>
+        <div class="absolute inset-0 bg-gradient-to-l from-black/30 to-black/50"></div>
 
         <!-- Conteúdo -->
         <div class="relative h-full flex items-center justify-end px-10 md:px-24">
             <div class="text-right max-w-lg">
-                <h1 class="font-medieval3 text-5xl md:text-9xl text-gold tracking-widest drop-shadow-lg">
+                <h1 class="font-BlakaHollow text-5xl md:text-9xl text-gold tracking-widest drop-shadow-lg">
                     Saga
                 </h1>
-                <p class="mt-4 text-lg opacity-90">
-                    Um processo de software inspirado em jornadas épicas
+            </div>
+        </div>
+
+        <!-- Barra flutuante centralizada no banner -->
+        <div class="absolute left-1/2 -translate-x-1/2 translate-y-1/2 bottom-0
+                 w-11/12 max-w-5xl bg-black/60 border border-gold/30
+                 rounded-3xl p-4 backdrop-blur-md shadow-2xl shadow-black/60">
+
+            <nav class="flex flex-col md:flex-row gap-3 text-gold/80 font-epic text-lg tracking-widest">
+                <a href="#visao-geral" class="flex-1 rounded-2xl border border-gold/30 bg-black/40
+                      px-4 py-3 text-center hover:border-gold/60 transition">
+                    Visão Geral
+                </a>
+
+                <a href="#A-lenda-do-saga" class="flex-1 rounded-2xl border border-gold/30 bg-black/40
+                      px-4 py-3 text-center hover:border-gold/60 transition">
+                    A lenda do saga
+                </a>
+
+                <a href="#Os-membros-da-jornada" class="flex-1 rounded-2xl border border-gold/30 bg-black/40
+                      px-4 py-3 text-center hover:border-gold/60 transition">
+                    Os membros da jornada
+                </a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- VISÃO GERAL -->
+    <section id="visao-geral" class="relative h-[40vh] w-full mt-32">
+        <img src="images/background/banner_02.jpg" alt="Saga Geral Image"
+            class="absolute inset-0 w-full h-full object-cover" />
+
+        <div class="absolute inset-0 bg-gradient-to-l from-black/30 to-black/50"></div>
+
+        <!-- Conteúdo -->
+        <div class="relative h-full flex items-center justify-center px-10 md:px-24">
+            <div class="text-center max-w-2xl">
+                <h1 class="font-BerkshireSwash text-4xl md:text-6xl tracking-widest drop-shadow-lg">
+                    Visão Geral
+                </h1>
+            </div>
+        </div>
+    </section>
+
+    <div class="font-BerkshireSwash max-w-6xl mx-auto grid grid-cols-3 gap-6 mt-10">
+        <!-- Card 1 -->
+        <div class="bg-[#3a3a3a] rounded-2xl p-4">
+            <div class="bg-[#3a3a3a] rounded-2xl overflow-hidden">
+                <img src="images/membros/arauto.png" alt="Imagem" class="w-full h-30 object-cover">
+
+                <!-- título com borda -->
+                <div class="px-4 -mt-4 mb-2 flex justify-center">
+                    <div class="inline-block bg-orange-600 text-white text-sm font-semibold
+                        px-4 py-1 border border-orange-300 rounded">
+                        Processo de software
+                    </div>
+                </div>
+
+                <p class="px-4 pb-4 text-xs leading-relaxed text-gray-100">
+                    Um processo de software é um conjunto estruturado de atividades, práticas e diretrizes que orientam o desenvolvimento de
+                    um sistema, desde a compreensão do problema até a entrega e evolução da solução. Ele define como o trabalho deve ser
+                    organizado, quais etapas precisam ser seguidas, quem são os responsáveis e como as decisões são tomadas ao longo do
+                    projeto. Mais do que uma sequência de tarefas, o processo de software serve como um caminho comum para a equipe,
+                    garantindo alinhamento, previsibilidade e qualidade mesmo diante da complexidade e das mudanças inerentes ao
+                    desenvolvimento.
                 </p>
             </div>
         </div>
-    </header>
+
+        <!-- Card 2 -->
+        <div class="bg-[#3a3a3a] rounded-2xl p-4">
+            <div class="bg-[#3a3a3a] rounded-2xl overflow-hidden">
+                <img src="images/membros/arauto.png" alt="Imagem" class="w-full h-30 object-cover">
+
+                <!-- título com borda -->
+                <div class="px-4 -mt-4 mb-2 flex justify-center">
+                    <div class="inline-block bg-orange-600 text-white text-sm font-semibold
+                                    px-4 py-1 border border-orange-300 rounded">
+                        Métodos Ágeis
+                    </div>
+                </div>
+
+                <p class="px-4 pb-4 text-xs leading-relaxed text-gray-100">
+                    Metodologias ágeis são abordagens de desenvolvimento de software que priorizam a adaptação contínua, a colaboração entre
+                    pessoas e a entrega frequente de valor. Em vez de seguir planos rígidos e extensos, elas propõem ciclos curtos de
+                    trabalho, nos quais o aprendizado constante, o feedback rápido e a evolução incremental do sistema orientam as decisões
+                    da equipe. Esse modelo permite responder melhor a mudanças, reduzir riscos e manter o foco nas reais necessidades do
+                    usuário ao longo de toda a jornada de desenvolvimento.
+                    Conheça os princípios ágeis por aqui: [link]
+                </p>
+            </div>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="bg-[#3a3a3a] rounded-2xl p-4">
+            <div class="bg-[#3a3a3a] rounded-2xl p-4">
+                <div class="bg-[#3a3a3a] rounded-2xl overflow-hidden">
+                    <img src="images/membros/arauto.png" alt="Imagem" class="w-full h-30 object-cover">
+
+                    <!-- título com borda -->
+                    <div class="px-4 -mt-4 mb-2 flex justify-center">
+                        <div class="inline-block bg-orange-600 text-white text-sm font-semibold
+                                                px-4 py-1 border border-orange-300 rounded">
+                            Métodos Ágeis
+                        </div>
+                    </div>
+
+                    <p class="px-4 pb-4 text-xs leading-relaxed text-gray-100">
+                        Metodologias ágeis são abordagens de desenvolvimento de software que priorizam a adaptação contínua, a
+                        colaboração entre
+                        pessoas e a entrega frequente de valor. Em vez de seguir planos rígidos e extensos, elas propõem ciclos
+                        curtos de
+                        trabalho, nos quais o aprendizado constante, o feedback rápido e a evolução incremental do sistema orientam
+                        as decisões
+                        da equipe. Esse modelo permite responder melhor a mudanças, reduzir riscos e manter o foco nas reais
+                        necessidades do
+                        usuário ao longo de toda a jornada de desenvolvimento.
+                        Conheça os princípios ágeis por aqui: [link]
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- A lenda de Saga -->
+    <section id = 'A-lenda-do-saga' class="relative h-[40vh] w-full mt-32">
+        <img src="images/background/banner_03.jpg" alt="Saga Geral Image"
+            class="absolute inset-0 w-full h-full object-cover" />
+
+        <div class="absolute inset-0 bg-gradient-to-l from-black/30 to-black/50"></div>
+
+        <!-- Conteúdo -->
+        <div class="relative h-full flex items-center justify-center px-10 md:px-24">
+            <div class="text-center max-w-3xl">
+                <h1 class="font-BlakaHollow text-6xl md:text-8xl tracking-widest drop-shadow-lg">
+                    A lenda de Saga
+                </h1>
+            </div>
+        </div>
+    </section>
+
+    <section class="mt-16 px-6 md:px-24">
+        <div class="font-BerkshireSwash max-w-3xl mx-auto text-justify leading-relaxed space-y-4">
+            <p>
+                Existe uma lenda antiga, de muito antes de existir um caminho claro. Uma história sussurrada entre gerações,
+                contada em corredores acadêmicos, laboratórios silenciosos e salas de desenvolvimento iluminadas por telas.
+                Ela fala sobre um grupo de desenvolvedores que se reuniu movido por ambição, curiosidade e desafio, para
+                enfrentar uma missão que parecia simples à primeira vista, mas que logo revelaria sua verdadeira
+                complexidade:
+                o PDS.
+            </p>
+
+            <p>
+                Eles não eram iniciantes. Cada integrante trazia consigo habilidades valiosas, conhecimento técnico
+                acumulado
+                ao longo do tempo e uma vontade genuína de vencer a missão. Havia quem dominasse a arte da interface e da
+                experiência do usuário, quem compreendesse profundamente as regras e estruturas do sistema, e quem soubesse
+                transformar ideias abstratas em código funcional. Ainda assim, apesar do talento evidente, algo sempre se
+                perdia pelo caminho, como se as peças certas nunca se encaixassem completamente.
+            </p>
+
+            <p>
+                Sem um direcionamento claro, decisões se chocavam e caminhos eram abandonados antes de serem concluídos.
+                Requisitos mudavam sem consenso, esforços se dissipavam em soluções paralelas e funcionalidades surgiam sem
+                um propósito bem definido. Ajustes importantes eram feitos tarde demais, quando o custo já era alto, e o
+                avanço do projeto tornava-se instável, imprevisível e difícil de sustentar. A jornada continuava, mas cada
+                passo parecia mais pesado do que o anterior, drenando energia e confiança da equipe.
+            </p>
+
+            <p>
+                Foi nesse ponto crítico que o grupo compreendeu uma verdade essencial. O problema não estava na falta de
+                talento, nem na ausência de esforço, mas na inexistência de um caminho comum. Desenvolver não era apenas
+                escrever código ou entregar funcionalidades isoladas; era necessário enxergar o desenvolvimento como uma
+                jornada coletiva, com etapas bem definidas, responsabilidades claras, comunicação constante e espaço para
+                aprendizado e adaptação contínuos.
+            </p>
+
+            <p>
+                A partir dessa compreensão, um novo método começou a ser moldado, inspirado em práticas ágeis e pensado
+                especialmente para orientar equipes acadêmicas diante de desafios complexos e mutáveis. Desde a compreensão
+                das necessidades iniciais até a consolidação de entregas funcionais, cada etapa passou a ter propósito. Cada
+                ciclo representava um avanço real. Cada integrante assumia um papel essencial. Cada decisão deixava de ser
+                isolada para se tornar parte de algo maior.
+            </p>
+
+            <p>
+                E assim, da necessidade de ordem em meio ao caos, nasceu um processo capaz de transformar o desenvolvimento
+                em uma verdadeira jornada, guiada por colaboração, clareza e evolução contínua. Essa é a história que ficou
+                conhecida como a Lenda de Saga.
+            </p>
+        </div>
+    </section>
+
+    <!-- Os membros da jornada -->
+    <section id='Os-membros-da-jornada' class="relative h-[40vh] w-full mt-32">
+        <img src="images/background/banner_04.png" alt="Saga Geral Image"
+            class="absolute inset-0 w-full h-full object-cover" />
+
+        <div class="absolute inset-0 bg-gradient-to-l from-black/30 to-black/50"></div>
+
+        <!-- Conteúdo -->
+        <div class="relative h-full flex items-center justify-center px-10 md:px-24">
+            <div class="text-center max-w-3xl">
+                <h1 class="font-BlakaHollow text-6xl md:text-8xl tracking-widest drop-shadow-lg">
+                    A lenda de Saga
+                </h1>
+            </div>
+        </div>
+    </section>
+
 
     <!-- CONTEÚDO -->
     <main class="space-y-20 py-20">
@@ -404,93 +569,41 @@
                     </div>
                 </div>
 
-                <div class="grid md:grid-cols-2 gap-12 items-center">
-                    <div>
-                        <p class="text-lg leading-relaxed">
-                            Eles não eram iniciantes. Cada integrante carregava consigo habilidades
-                            valiosas, conhecimento técnico e vontade de vencer a missão. Havia quem
-                            dominasse a arte da interface, quem entendesse profundamente as regras do
-                            sistema e quem soubesse traduzir ideias em código funcional.
-                            Ainda assim, algo sempre se perdia pelo caminho.
-                        </p>
-                    </div>
+                <div>
+                    <p class="text-lg leading-relaxed mb-6">
+                        Eles não eram iniciantes. Cada integrante carregava consigo habilidades
+                        valiosas, conhecimento técnico e vontade de vencer a missão. Havia quem
+                        dominasse a arte da interface, quem entendesse profundamente as regras do
+                        sistema e quem soubesse traduzir ideias em código funcional.
+                        Ainda assim, algo sempre se perdia pelo caminho.
+                    </p>
 
-                    <div class="flex justify-center">
-                        <img src="https://images.unsplash.com/photo-1581090700227-1e37b190418e"
-                            alt="Caos no desenvolvimento"
-                            class="rounded-xl shadow-2xl border border-gold/30 max-w-md" />
-                    </div>
-                </div>
+                    <p class="text-lg leading-relaxed mb-6">
+                        Sem um direcionamento claro, decisões se chocavam, requisitos se confundiam e
+                        esforços se dissipavam. Funcionalidades surgiam sem propósito definido, ajustes
+                        eram feitos tarde demais e o avanço do projeto se tornava instável e imprevisível.
+                        A jornada continuava, mas cada passo parecia mais pesado do que o anterior.
+                    </p>
 
-                <!-- BLOCO 3 -->
-                <div class="grid md:grid-cols-2 gap-12 items-center">
-                    <div>
-                        <p class="text-lg leading-relaxed">
-                            Sem um direcionamento claro, decisões se chocavam, requisitos se confundiam e
-                            esforços se dissipavam. Funcionalidades surgiam sem propósito definido, ajustes
-                            eram feitos tarde demais e o avanço do projeto se tornava instável e imprevisível.
-                            A jornada continuava, mas cada passo parecia mais pesado do que o anterior.
-                        </p>
-                    </div>
+                    <p class="text-lg leading-relaxed mb-6">
+                        Foi nesse ponto que o grupo compreendeu uma verdade essencial: o problema
+                        não estava na falta de talento, mas na ausência de um caminho. Não bastava
+                        apenas desenvolver; era preciso entender o desenvolvimento como uma jornada
+                        coletiva, com etapas bem definidas, responsabilidades claras e evolução contínua.
+                    </p>
 
-                    <!-- <div class="flex justify-center">
-                        <img
-                            src="https://images.unsplash.com/photo-1581090700227-1e37b190418e"
-                            alt="Caos no desenvolvimento"
-                            class="rounded-xl shadow-2xl border border-gold/30 max-w-md"
-                        />
-                    </div> -->
-                </div>
+                    <p class="text-lg leading-relaxed mb-6">
+                        A partir dessa compreensão, um novo método começou a ser moldado. Um processo
+                        inspirado em práticas ágeis, pensado para orientar equipes acadêmicas em desafios
+                        complexos, desde a compreensão das necessidades iniciais até a consolidação de
+                        entregas funcionais. Cada ciclo passou a representar um avanço. Cada integrante,
+                        um papel essencial. Cada decisão, parte de algo maior.
+                    </p>
 
-                <!-- BLOCO 4 -->
-                <div class="grid md:grid-cols-2 gap-12 items-center">
-                    <!-- <div class="order-2 md:order-1 flex justify-center">
-                        <img
-                            src="https://images.unsplash.com/photo-1603575448365-5b3e2d74b57a"
-                            alt="Reflexão e mudança"
-                            class="rounded-xl shadow-2xl border border-gold/30 max-w-md"
-                        />
-                    </div> -->
-
-                    <div class="">
-                        <p class="text-lg leading-relaxed">
-                            Foi nesse ponto que o grupo compreendeu uma verdade essencial: o problema
-                            não estava na falta de talento, mas na ausência de um caminho. Não bastava
-                            apenas desenvolver; era preciso entender o desenvolvimento como uma jornada
-                            coletiva, com etapas bem definidas, responsabilidades claras e evolução contínua.
-                        </p>
-                    </div>
-                </div>
-
-                <!-- BLOCO 5 -->
-                <div class="grid md:grid-cols-2 gap-12 items-center">
-                    <div>
-                        <p class="text-lg leading-relaxed">
-                            A partir dessa compreensão, um novo método começou a ser moldado. Um processo
-                            inspirado em práticas ágeis, pensado para orientar equipes acadêmicas em desafios
-                            complexos, desde a compreensão das necessidades iniciais até a consolidação de
-                            entregas funcionais.
-                            Cada ciclo passou a representar um avanço. Cada integrante, um papel essencial.
-                            Cada decisão, parte de algo maior.
-                        </p>
-                    </div>
-
-                    <!-- <div class="flex justify-center">
-                        <img
-                            src="https://images.unsplash.com/photo-1531482615713-2afd69097998"
-                            alt="Novo processo"
-                            class="rounded-xl shadow-2xl border border-gold/30 max-w-md"
-                        />
-                    </div> -->
-                </div>
-
-                <div class="grid md:grid-cols-2 gap-12 items-center">
-                    <div>
-                        <p class="text-lg leading-relaxed">
-                            E assim, da necessidade de ordem em meio ao caos, nasceu um processo que
-                            transformou o desenvolvimento em uma verdadeira jornada.
-                        </p>
-                    </div>
+                    <p class="text-lg leading-relaxed">
+                        E assim, da necessidade de ordem em meio ao caos, nasceu um processo que
+                        transformou o desenvolvimento em uma verdadeira jornada.
+                    </p>
                 </div>
 
                 <!-- CLÍMAX FINAL -->
@@ -504,162 +617,7 @@
             </div>
         </section>
 
-        <!-- <section class="min-h-screen overflow-hidden">
-
-            <div class="absolute inset-0">
-                <img
-                    src="/imagens/mapa.png"
-                    alt="Mapa da jornada Saga"
-                    class="w-full h-full object-contain opacity-70"
-                />
-
-                <div class="absolute inset-0 bg-black/60"></div>
-            </div>
-
-            <div class="relative z-10 py-32 px-8 md:px-24">
-
-                <div class="max-w-6xl mx-auto space-y-32">
-
-                    <div class="journey-point text-center max-w-3xl mx-auto">
-                        <p class="text-xl md:text-2xl italic text-gray-200 leading-relaxed">
-                            Existe uma lenda antiga, de muito antes de existir um caminho claro.
-                            Uma história passada de geração em geração sobre um grupo de desenvolvedores
-                            que se reuniu para enfrentar um grande desafio: o PDS.
-                        </p>
-                    </div>
-
-                    <div class="journey-point max-w-3xl ml-auto text-right">
-                        <p class="text-lg leading-relaxed">
-                            Eles não eram iniciantes. Cada integrante carregava habilidades valiosas,
-                            domínio técnico e vontade de vencer a missão. Havia quem dominasse a arte
-                            da interface, quem compreendesse profundamente as regras do sistema e quem
-                            transformasse ideias em código funcional.
-                        </p>
-                    </div>
-
-                    <div class="journey-point max-w-3xl">
-                        <p class="text-lg leading-relaxed">
-                            Ainda assim, sem um direcionamento claro, decisões se chocavam, requisitos
-                            se confundiam e esforços se perdiam pelo caminho. Funcionalidades surgiam
-                            sem propósito definido e o avanço do projeto tornava-se instável e imprevisível.
-                        </p>
-                    </div>
-
-                    <div class="journey-point max-w-3xl ml-auto text-right">
-                        <p class="text-lg leading-relaxed">
-                            Foi então que o grupo percebeu que o problema não estava na falta de talento,
-                            mas na ausência de um caminho. Desenvolver exigia mais do que código:
-                            exigia organização, entendimento e evolução contínua.
-                        </p>
-                    </div>
-
-                    <div class="journey-point max-w-3xl">
-                        <p class="text-lg leading-relaxed">
-                            A partir dessa compreensão, um novo processo começou a ser forjado.
-                            Inspirado em metodologias ágeis e pensado para orientar projetos acadêmicos,
-                            ele passou a estruturar a jornada desde a coleta de requisitos até as
-                            etapas mais avançadas do desenvolvimento.
-                        </p>
-                    </div>
-
-                    <div class="journey-point text-center pt-40">
-                        <h1 class="font-medieval3 text-gold text-6xl md:text-8xl lg:text-9xl tracking-widest drop-shadow-2xl">
-                            A LENDA DE SAGA
-                        </h1>
-                    </div>
-
-                </div>
-            </div>
-        </section> -->
-
-        <!-- <section class="relative py-32 px-8 md:px-24 bg-black">
-
-            <div class="max-w-5xl mx-auto space-y-24">
-
-                <div class="journey-point text-center">
-                    <p class="text-xl md:text-2xl italic text-gray-300 leading-relaxed max-w-3xl mx-auto">
-                        Existe uma lenda antiga, de muito antes de existir um caminho claro.
-                        Uma história passada de geração em geração sobre um grupo de desenvolvedores
-                        que se reuniu para enfrentar um grande desafio: o PDS.
-                    </p>
-                </div>
-
-                <div class="journey-point text-left md:text-right max-w-4xl mx-auto">
-                    <p class="text-lg leading-relaxed">
-                        Eles não eram iniciantes. Cada integrante carregava habilidades valiosas,
-                        domínio técnico e vontade de vencer a missão. Havia quem dominasse a arte
-                        da interface, quem compreendesse profundamente as regras do sistema e quem
-                        transformasse ideias em código funcional.
-                    </p>
-                </div>
-
-                <div class="journey-point text-left max-w-4xl mx-auto">
-                    <p class="text-lg leading-relaxed">
-                        Ainda assim, sem um direcionamento claro, decisões se chocavam, requisitos
-                        se confundiam e esforços se perdiam pelo caminho. Funcionalidades surgiam
-                        sem propósito definido e o avanço do projeto tornava-se instável e imprevisível.
-                    </p>
-                </div>
-
-                <div class="journey-point text-right max-w-4xl mx-auto">
-                    <p class="text-lg leading-relaxed">
-                        Foi então que o grupo percebeu que o problema não estava na falta de talento,
-                        mas na ausência de um caminho. Desenvolver exigia mais do que código:
-                        exigia organização, entendimento e evolução contínua.
-                    </p>
-                </div>
-
-                <div class="journey-point text-left max-w-4xl mx-auto">
-                    <p class="text-lg leading-relaxed">
-                        A partir dessa compreensão, um novo processo começou a ser forjado.
-                        Inspirado em metodologias ágeis e pensado para orientar projetos acadêmicos,
-                        ele passou a estruturar a jornada desde a coleta de requisitos até as
-                        etapas mais avançadas do desenvolvimento.
-                    </p>
-                </div>
-
-                <div class="journey-point text-center pt-24">
-                    <h1 class="font-medieval3 text-gold text-6xl md:text-8xl lg:text-9xl tracking-widest drop-shadow-2xl">
-                        A lenda de Saga
-                    </h1>
-                </div>
-
-            </div>
-        </section> -->
-
-        <!-- <section class="px-8 md:px-24 flex flex-col items-center">
-            <h2 class="font-epic text-3xl text-gold mb-6 text-center">
-                Introdução
-            </h2>
-
-            <div class="max-w-4xl space-y-4">
-                <p class="leading-relaxed text-lg">
-                    O <span class="text-gold font-semibold">Saga</span> é um processo de desenvolvimento de software
-                    inspirado em metodologias ágeis, desenvolvido para orientar projetos acadêmicos de forma
-                    estruturada, colaborativa e iterativa. Ele organiza o trabalho da equipe desde o entendimento
-                    inicial das necessidades do cliente até a entrega e validação contínua do sistema, estabelecendo
-                    uma progressão clara do projeto e mantendo foco na qualidade técnica, no alinhamento com o cliente
-                    e na evolução constante do produto.
-                </p>
-
-                <p class="leading-relaxed text-lg">
-                    O processo é estruturado em ciclos sucessivos que representam etapas da jornada de desenvolvimento.
-                    Em cada ciclo, os requisitos são compreendidos, documentados, priorizados, implementados e
-                    validados com base no feedback obtido. Esses ciclos funcionam como avanços controlados do projeto,
-                    permitindo entregas incrementais, redução de riscos e ajustes contínuos ao longo da execução.
-                </p>
-
-                <p class="leading-relaxed text-lg">
-                    Para sustentar essa progressão, o Saga define papéis específicos inspirados em práticas ágeis
-                    consolidadas, organizados de forma semelhante à composição de um grupo em uma campanha de RPG.
-                    Cada participante assume uma função clara dentro do time, contribuindo com responsabilidades
-                    distintas e complementares, garantindo coordenação, equilíbrio de decisões e coerência entre
-                    aspectos técnicos, visuais e funcionais do sistema.
-                </p>
-            </div>
-        </section> -->
-
-        <section class="px-8 md:px-24">
+        <section id="papeis" class="px-8 md:px-24">
             <h2 class="font-epic text-4xl text-gold mb-12 text-center">
                 Papéis da Saga
             </h2>
@@ -687,7 +645,7 @@
             </div>
         </section>
 
-        <section class="px-8 md:px-24 py-24 bg-dark text-gray-200">
+        <section id="jornada" class="px-8 md:px-24 py-24 bg-dark text-gray-200">
 
             <div class="max-w-6xl mx-auto space-y-16">
 
@@ -979,46 +937,18 @@
                             </span>
                         </div>
                     </div>
-
-
                 </div>
             </div>
         </section>
 
-
-        <section class="px-8 md:px-24">
-            <h2 class="font-epic text-3xl text-gold mb-6">
-                Visão Geral
-            </h2>
-            <p class="max-w-3xl leading-relaxed text-lg">
-                O Saga é um processo de software inspirado em jogos de RPG e Dungeons & Dragons,
-                onde cada projeto é tratado como uma jornada épica. Cada fase representa
-                um momento da aventura, com desafios, decisões e evolução contínua do time.
-            </p>
-        </section>
-
-        <section class="px-8 md:px-24">
-            <h2 class="font-epic text-3xl text-gold mb-6">
-                Fase 1 — O Chamado à Aventura
-            </h2>
-            <p class="max-w-3xl leading-relaxed text-lg">
-                O problema surge, a missão é apresentada e o time é convocado.
-                Nesta fase são definidos os objetivos, os riscos e o escopo inicial,
-                estabelecendo o propósito da jornada.
-            </p>
-        </section>
-
-        <section class="px-8 md:px-24">
-            <h2 class="font-epic text-3xl text-gold mb-6">
-                Fase 2 — Formação da Guilda
-            </h2>
-            <p class="max-w-3xl leading-relaxed text-lg">
-                Os papéis são distribuídos, responsabilidades assumidas
-                e o grupo se organiza estrategicamente para enfrentar
-                os desafios técnicos e organizacionais do projeto.
-            </p>
-        </section>
-
     </main>
 
-    <!-- FOOTER -->
+    <footer class="bg-black/90 text-gray-400 text-center py-8 border-t border-gold/20">
+        <p class="text-sm">
+            © 2026 Saga - Processo de Software
+        </p>
+    </footer>
+
+</body>
+
+</html>
