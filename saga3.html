@@ -1,0 +1,828 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Saga</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Blaka+Hollow&display=swap" rel="stylesheet">
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Blaka&family=IM+Fell+Double+Pica:ital@0;1&family=Macondo+Swash+Caps&family=MedievalSharp&family=Metal+Mania&family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+
+    <link href="https://fonts.googleapis.com/css2?family=Berkshire+Swash&family=Blaka+Hollow&display=swap"
+        rel="stylesheet">
+
+    <style>
+        @font-face {
+            font-family: 'Rotunda';
+            src: url('fonts/berry_rotunda/BerryRotunda.ttf') format('truetype');
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        @font-face {
+            font-family: 'Fraktur';
+            src: url('fonts/fin_fraktur/fine_fraktur_B.ttf') format('truetype');
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        @font-face {
+            font-family: 'Wendell';
+            src: url('fonts/wendell/Wendell_v1.ttf') format('truetype');
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        @font-face {
+            font-family: 'Magnificent';
+            src: url('fonts/magnificent_2/MagnificentPersonalUse.ttf') format('truetype');
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        @font-face {
+            font-family: 'Dearest';
+            src: url('fonts/dearest/Dearest.ttf') format('truetype');
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        @font-face {
+            font-family: 'Scaqh';
+            src: url('fonts/argor_flahm_scaqh/ArgFlahm.ttf') format('truetype');
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        /* Botões */
+        .toggle-btn {
+            padding: 0.5rem 1.25rem;
+            font-family: inherit;
+            font-weight: 600;
+            border-radius: 0.5rem;
+            background: rgba(0, 0, 0, 0.6);
+            color: #E9E9E9;
+            transition: all 0.3s ease;
+        }
+
+        .toggle-btn:hover {
+            background: #D32000;
+        }
+
+        .active-toggle {
+            background: #D32000;
+        }
+
+        /* Imagens */
+        .view-image {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.4s ease;
+        }
+
+        .active-view {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        /* Mantém altura correta */
+        .view-image:first-child {
+            position: relative;
+        }
+    </style>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        BlakaHollow: ['Blaka Hollow', 'cursive'],
+                        BerkshireSwash: ['Berkshire Swash', 'cursive'],
+                        Blaka: ['Blaka', 'cursive'],
+                        Rotunda: ['Rotunda', 'cursive'],
+                        Fraktur: ['Fraktur', 'cursive'],
+                        Wendell: ['Wendell', 'cursive'],
+                        Magnificent: ['Magnificent', 'cursive'],
+                        Dearest: ['Dearest', 'cursive'],
+                        Scaqh: ['Scaqh', 'cursive'],
+                    },
+                    colors: {
+                        gold: '#d4af37',
+                        dark: '#0f0f0f'
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+
+<body class="bg-[#E9E9E9] text-[#0D1219] font-Rotunda">
+    <header class="relative h-[60vh] w-full">
+        <img src="images/background/banner_01.png" alt="Saga Hero Image"
+            class="absolute inset-0 w-full h-full object-cover scale-x-[-1]" />
+
+        <div class="relative h-full flex items-center justify-end px-[250px] pt-[150px]">
+            <div class="text-right max-w-lg">
+                <h1 class="font-Magnificent text-[256px] text-gold drop-shadow-lg leading-none -ml-[170px]">
+                    Saga
+                </h1>
+
+                <p class="mt-4 text-[24px] text-[#E9E9E9] drop-shadow-md">
+                    Uma jornada pelo conhecimento dos processos de software
+                </p>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="relative h-[310px] w-full mt-[82px]">
+            <img src="images/background/banner_02.jpg" alt="Saga Geral Image"
+                class="inset-0 w-full h-full object-cover object-[center_40%]" />
+        </section>
+
+        <h1 class="font-Magnificent text-[128px] drop-shadow-lg leading-none text-center my-10">
+            Prologo
+        </h1>
+
+        <div class="flex gap-10 justify-center">
+            <div
+                class="relative w-[416px] h-[403px] bg-[#0D1219] text-[#E9E9E9] overflow-hidden shadow-lg rounded-[10px] transition-all duration-300 ease-out hover:scale-[1.03] shadow-xl">
+                <div class="h-1/2 overflow-hidden">
+                    <img src="images/background/banner_06.jpg" alt=""
+                        class="w-full h-full object-cover scale-110 object-center">
+                </div>
+
+                <span class="absolute top-1/2 left-6 -translate-y-1/2 bg-[#D32000] px-2 text-[20px] font-Blaka">
+                    Processo de software
+                </span>
+
+                <div class="h-1/2 px-6 pt-10 pb-6 flex flex-col gap-4">
+                    <h3 class="text-xl font-bold">
+                        O caminho do Software
+                    </h3>
+
+                    <p class="text-md font-BerkshireSwash leading-relaxed text-[#E9E9E9]/90">
+                        Um processo de software é o conjunto de etapas
+                        que guiam a criação, evolução e manutenção de um
+                        sistema, do planejamento até a entrega.
+                    </p>
+                </div>
+            </div>
+
+            <div
+                class="relative w-[416px] h-[403px] bg-[#0D1219] text-[#E9E9E9] overflow-hidden shadow-lg rounded-[10px] transition-all duration-300 ease-out hover:scale-[1.03] shadow-xl">
+                <div class="h-1/2 overflow-hidden">
+                    <img src="images/background/banner_07.jpg" alt=""
+                        class="w-full h-full object-cover scale-110 object-center">
+                </div>
+
+                <span class="absolute top-1/2 left-6 -translate-y-1/2 bg-[#D32000] px-2 text-[20px] font-Blaka">
+                    Métodos ágeis
+                </span>
+
+                <div class="h-1/2 px-6 pt-10 pb-6 flex flex-col gap-4">
+                    <h3 class="text-xl font-bold">
+                        Adaptar-se ou Cair
+                    </h3>
+
+                    <p class="text-md font-BerkshireSwash leading-relaxed text-[#E9E9E9]/90">
+                        Métodos ágeis são abordagens de desenvolvimento
+                        que priorizam adaptação rápida, colaboração
+                        constante e entregas frequentes de valor.
+                    </p>
+                </div>
+            </div>
+
+            <div
+                class="relative w-[416px] h-[403px] bg-[#0D1219] text-[#E9E9E9] overflow-hidden shadow-lg rounded-[10px] transition-all duration-300 ease-out hover:scale-[1.03] shadow-xl">
+                <div class="h-1/2 overflow-hidden">
+                    <img src="images/background/banner_08.png" alt=""
+                        class="w-full h-full object-cover scale-110 object-center">
+                </div>
+
+                <span class="absolute top-1/2 left-6 -translate-y-1/2 bg-[#D32000] px-2 text-[20px] font-Blaka">
+                    Projetado e planejado por
+                </span>
+
+                <div class="h-1/2 px-6 pt-10 pb-6 flex flex-col gap-4">
+                    <h3 class="text-xl font-bold">
+                        O Conselho dos Arquitetos
+                    </h3>
+
+                    <ul class="text-md font-BerkshireSwash space-y-1 list-disc px-8">
+                        <li>Ícaro Gabriel</li>
+                        <li>Gustavo Tavares</li>
+                        <li>Flávio da Silva</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <section class="relative w-full mt-20">
+            <img src="images/background/banner_03.jpg" alt="Saga Geral Image" class="w-full h-[80vh] object-cover" />
+            <h1
+                class="absolute inset-0 flex items-center justify-center font-Magnificent text-5xl md:text-7xl xl:text-[128px] drop-shadow-lg leading-none text-center mt-10">
+                A Lenda de Saga
+            </h1>
+        </section>
+
+
+        <section class="mt-16 px-6 md:px-24">
+            <div
+                class="font-BerkshireSwash max-w-4xl mx-auto text-justify leading-relaxed space-y-4 text-xl md:text-2xl">
+                <p>
+                    Existe uma lenda antiga, de muito antes de existir um caminho claro.
+                </p>
+
+                <p>
+                    Uma história sussurrada entre gerações, contada em corredores acadêmicos, laboratórios silenciosos e
+                    salas de
+                    desenvolvimento iluminadas por telas. Ela fala sobre um grupo de desenvolvedores que se reuniu
+                    movido por ambição,
+                    curiosidade e desafio, para enfrentar uma missão que parecia simples à primeira vista, mas que logo
+                    revelaria sua
+                    verdadeira complexidade: o PDS.
+                </p>
+
+                <p>
+                    Eles não eram iniciantes. Cada integrante trazia consigo habilidades valiosas, conhecimento técnico
+                    acumulado ao longo
+                    do tempo e uma vontade genuína de vencer a missão. Havia quem dominasse a arte da interface e da
+                    experiência do usuário,
+                    quem compreendesse profundamente as regras e estruturas do sistema, e quem soubesse transformar
+                    ideias abstratas em
+                    código funcional. Ainda assim, apesar do talento evidente, algo sempre se perdia pelo caminho, como
+                    se as peças certas
+                    nunca se encaixassem completamente.
+                </p>
+
+                <p>
+                    Sem um direcionamento claro, decisões se chocavam e caminhos eram abandonados antes de serem
+                    concluídos. Requisitos
+                    mudavam sem consenso, esforços se dissipavam em soluções paralelas e funcionalidades surgiam sem um
+                    propósito bem
+                    definido. Ajustes importantes eram feitos tarde demais, quando o custo já era alto, e o avanço do
+                    projeto tornava-se
+                    instável, imprevisível e difícil de sustentar. A jornada continuava, mas cada passo parecia mais
+                    pesado do que o
+                    anterior, drenando energia e confiança da equipe.
+                </p>
+
+                <p>
+                    Foi nesse ponto crítico que o grupo compreendeu uma verdade essencial. O problema não estava na
+                    falta de talento, nem na
+                    ausência de esforço, mas na inexistência de um caminho comum. Desenvolver não era apenas escrever
+                    código ou entregar
+                    funcionalidades isoladas; era necessário enxergar o desenvolvimento como uma jornada coletiva. Uma
+                    jornada com etapas
+                    bem definidas, responsabilidades claras, comunicação constante e espaço para aprendizado e adaptação
+                    contínuos.
+                </p>
+
+                <p>
+                    A partir dessa compreensão, um novo método começou a ser moldado. Um processo inspirado em práticas
+                    ágeis, pensado
+                    especialmente para orientar equipes acadêmicas diante de desafios complexos e mutáveis. Desde a
+                    compreensão das
+                    necessidades iniciais até a consolidação de entregas funcionais, cada etapa passou a ter propósito.
+                    Cada ciclo
+                    representava um avanço real. Cada integrante assumia um papel essencial. Cada decisão deixava de ser
+                    isolada para se
+                    tornar parte de algo maior.
+                </p>
+
+                <p>
+                    E assim, da necessidade de ordem em meio ao caos, nasceu um processo capaz de transformar o
+                    desenvolvimento em uma
+                    verdadeira jornada. Uma jornada guiada por colaboração, clareza e evolução contínua.
+                </p>
+
+                <p>
+                    Essa é a história que ficou conhecida como <span class="text-[#D32000] font-Dearest">A lenda de
+                        Saga</span>.
+                </p>
+            </div>
+        </section>
+
+        <section class="w-full mt-20">
+            <img src="images/background/banner_04.png" alt="Saga Geral Image"
+                class="w-full h-[310px] object-cover object-[center_10%]" />
+        </section>
+
+        <h1 class="font-Magnificent text-5xl md:text-7xl xl:text-[128px] drop-shadow-lg leading-none text-center mt-10">
+            Classes do Processo
+        </h1>
+
+        <section class="relative w-full pt-10">
+            <div id="main-role-card" class="relative w-full h-[90vh] overflow-hidden">
+                <img id="main-role-image" src="" alt="" class="absolute inset-0 w-full h-full object-cover scale-110">
+                <div class="absolute inset-0 bg-black/50"></div>
+                <div class="relative z-10 h-full flex flex-col justify-center px-16 text-[#E9E9E9]">
+
+                    <span id="main-role-subtitle"
+                        class="inline-block bg-[#D32000] px-1 text-lg font-Blaka w-fit mb-[70px]"></span>
+                    <h2 id="main-role-title" class="font-Magnificent text-6xl xl:text-[96px] leading-none mb-6"></h2>
+                    <p id="main-role-description" class="font-Fraktur text-xl leading-relaxed mb-6 max-w-4xl"></p>
+                    <ul id="main-role-responsibilities" class="list-disc pl-6 space-y-2 text-lg font-Fraktur"></ul>
+                </div>
+            </div>
+
+            <div class="relative -mt-32 z-20 overflow-hidden">
+                <div id="roles-carousel" class="flex gap-8 px-[200px] cursor-grab active:cursor-grabbing select-none">
+                    <div id="role-cards" class="flex gap-6"></div>
+                </div>
+            </div>
+        </section>
+
+        <section class="w-full mt-5">
+            <img src="images/background/banner_05.png" alt="Saga Geral Image"
+                class="w-full h-[310px] object-cover object-[center_10%]" />
+        </section>
+
+        <h1 class="font-Magnificent text-5xl md:text-7xl xl:text-[128px] drop-shadow-lg leading-none text-center mt-10">
+            O Desenrolar da Missao
+        </h1>
+
+        <section class="relative my-16 max-w-6xl mx-auto px-6 md:px-0">
+
+            <div class="flex justify-center mb-8 gap-2">
+                <button id="btn-map" class="toggle-btn active-toggle">
+                    Mapa
+                </button>
+
+                <button id="btn-diagram" class="toggle-btn">
+                    Diagrama
+                </button>
+            </div>
+
+            <div class="relative w-full">
+
+                <img id="map-view" src="images/diagrama_mapa.png" alt="imagem diagrama mapa"
+                    class="view-image active-view" />
+
+                <img id="diagram-view" src="images/diagrama.png" alt="imagem diagrama" class="view-image" />
+
+            </div>
+        </section>
+
+        <section class="relative w-full mt-32">
+
+            <h2 class="font-Magnificent text-center text-6xl mb-16 text-[#E9E9E9]">
+                Atividades da Jornada
+            </h2>
+
+            <div class="relative flex items-center justify-center h-[520px]">
+
+                <!-- Carta esquerda -->
+                <div id="activity-left" class="role-card side-card left-card bg-[#ff0000]"></div>
+
+                <!-- Carta central -->
+                <div id="activity-center" class="role-card main-card z-10 bg-[#ff0000]"></div>
+
+                <!-- Carta direita -->
+                <div id="activity-right" class="role-card side-card right-card bg-[#ff0000]"></div>
+
+                <!-- Controles -->
+                <button onclick="prevActivity()" class="absolute left-10 text-gold text-4xl hover:scale-110 transition">
+                    ◀
+                </button>
+
+                <button onclick="nextActivity()"
+                    class="absolute right-10 text-gold text-4xl hover:scale-110 transition">
+                    ▶
+                </button>
+
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-black/90 text-gray-400 text-center py-8 border-t border-gold/20">
+        <p class="text-sm">
+            © 2026 Saga - Processo de Software
+        </p>
+    </footer>
+</body>
+
+<script>
+    const roles = [
+        {
+            title: "Arauto da Missao",
+            subtitle: "Representante do Cliente",
+            description: "É o membro do time que possui maior proximidade com o cliente e compreende claramente suas necessidades, prioridades e expectativas em relação ao sistema.",
+            image: "images/membros/mestre.png",
+            responsibilities: [
+                "Centralizar o entendimento dos requisitos do cliente",
+                "Traduzir expectativas do cliente para o time",
+                "Realizar testes funcionais",
+                "Validar entregas",
+                "Avaliar design, fluxo e comportamento"
+            ]
+        },
+        {
+            title: "Mago do Figma",
+            subtitle: "Designer Técnico",
+            description: "Responsável por definir a identidade visual do sistema e garantir consistência estética durante toda a jornada.",
+            image: "images/membros/mago.png",
+            responsibilities: [
+                "Criar layouts e designs",
+                "Definir padrões visuais",
+                "Validar implementação visual",
+                "Apoiar decisões de UX"
+            ]
+        },
+        {
+            title: "Mestre da Fachada",
+            subtitle: "Líder Front-end",
+            description: "Garante organização, qualidade e sustentabilidade do código front-end.",
+            image: "images/membros/mestre.png",
+            responsibilities: [
+                "Definir estrutura do front",
+                "Garantir padrões de código",
+                "Avaliar qualidade e legibilidade",
+                "Apoiar decisões técnicas"
+            ]
+        },
+        {
+            title: "Guardiao do Nucleo",
+            subtitle: "Líder Back-end",
+            description: "Responsável pela estrutura, organização e qualidade do código do servidor.",
+            image: "images/membros/guradiao.png",
+            responsibilities: [
+                "Definir estrutura do back-end",
+                "Garantir boas práticas",
+                "Avaliar regras de negócio",
+                "Apoiar decisões técnicas"
+            ]
+        },
+        {
+            title: "Forjador de Portais",
+            subtitle: "Lider de Operaçoes",
+            description: "Prepara a infraestrutura para execução e disponibilização do sistema.",
+            image: "images/membros/portal1.png",
+            responsibilities: [
+                "Configurar ambientes",
+                "Definir infraestrutura",
+                "Implementar pipelines CI/CD"
+            ]
+        },
+        {
+            title: "Ancião da Ordem",
+            subtitle: "Revisor Senior / Mentor",
+            description: "Figura experiente que orienta e valida decisões técnicas e metodológicas.",
+            image: "images/membros/ancia.png",
+            responsibilities: [
+                "Avaliar soluções técnicas",
+                "Identificar melhorias",
+                "Fornecer feedback ao time"
+            ]
+        },
+        {
+            title: "Companheiros da Jornada",
+            subtitle: "Desenvolvedores",
+            description: "Membros ativos do time que constroem o sistema colaborativamente.",
+            image: "images/membros/time1.png",
+            responsibilities: [
+                "Implementar funcionalidades",
+                "Corrigir problemas",
+                "Colaborar com a equipe",
+                "Seguir padrões do processo"
+            ]
+        }
+    ];
+
+    // const activities = [
+    //     {
+    //         span: "Etapa Inicial",
+    //         title: "Coletar e Documentar Requisitos",
+    //         description: "Entender profundamente as necessidades do cliente, registrando expectativas, prioridades e contexto para guiar toda a jornada do projeto.",
+    //         image: "images/atividades/req.png"
+    //     },
+    //     {
+    //         span: "Planejamento",
+    //         title: "Priorizar e Definir Escopo",
+    //         description: "Decidir o que será desenvolvido em cada ciclo, equilibrando valor de negócio, esforço técnico e dependências.",
+    //         image: "images/atividades/escopo.png"
+    //     },
+    //     {
+    //         span: "Fundação",
+    //         title: "Construção da Documentação",
+    //         description: "Registrar decisões técnicas, arquitetura e informações essenciais para garantir continuidade e manutenção do sistema.",
+    //         image: "images/atividades/doc.png"
+    //     },
+    //     {
+    //         span: "Design",
+    //         title: "Projetar Interface",
+    //         description: "Criar protótipos e layouts focados em usabilidade, clareza e experiência do usuário.",
+    //         image: "images/atividades/ui.png"
+    //     },
+    //     {
+    //         span: "Qualidade",
+    //         title: "Escrever Testes",
+    //         description: "Garantir o funcionamento correto do sistema por meio de testes automatizados e critérios bem definidos.",
+    //         image: "images/atividades/testes.png"
+    //     },
+    //     {
+    //         span: "Execução",
+    //         title: "Desenvolver Incremento",
+    //         description: "Implementar funcionalidades seguindo padrões técnicos e objetivos definidos para o ciclo.",
+    //         image: "images/atividades/dev.png"
+    //     },
+    //     {
+    //         span: "Validação",
+    //         title: "Testar Incremento",
+    //         description: "Avaliar o incremento desenvolvido, verificando comportamento, usabilidade e critérios de aceitação.",
+    //         image: "images/atividades/validacao.png"
+    //     },
+    //     {
+    //         span: "Integração",
+    //         title: "Integrar Incremento",
+    //         description: "Unificar as partes do sistema, resolvendo conflitos e garantindo estabilidade.",
+    //         image: "images/atividades/integracao.png"
+    //     },
+    //     {
+    //         span: "Encerramento",
+    //         title: "Revisão e Retrospectiva",
+    //         description: "Avaliar resultados, coletar feedback e identificar melhorias para a próxima jornada.",
+    //         image: "images/atividades/review.png"
+    //     }
+    // ];
+
+
+    // Elementos principais
+    const mainImage = document.getElementById("main-role-image");
+    const mainTitle = document.getElementById("main-role-title");
+    const mainSubtitle = document.getElementById("main-role-subtitle");
+    const mainDescription = document.getElementById("main-role-description");
+    const mainResponsibilities = document.getElementById("main-role-responsibilities");
+    const cardsContainer = document.getElementById("role-cards");
+
+    // Renderiza o card principal
+    function renderMainRole(role) {
+        mainImage.src = role.image;
+        mainTitle.textContent = role.title;
+        mainSubtitle.textContent = role.subtitle;
+        mainDescription.textContent = role.description;
+
+        mainResponsibilities.innerHTML = "";
+        role.responsibilities.forEach(item => {
+            const li = document.createElement("li");
+            li.textContent = item;
+            mainResponsibilities.appendChild(li);
+        });
+    }
+
+    // Cria mini cards
+    roles.forEach((role, index) => {
+        const card = document.createElement("div");
+        card.className = `
+        w-[327px] h-[307px] text-[#0D1219] bg-[#E9E9E9]
+        rounded-xl overflow-hidden cursor-pointer
+        transition-all duration-300
+        hover:scale-[1.05] hover:shadow-xl
+    `;
+
+        card.innerHTML = `
+        <div class="h-1/2 overflow-hidden">
+            <img src="${role.image}" class="w-full h-full object-cover scale-110">
+        </div>
+        <div class="h-1/2 p-4 flex flex-col gap-2">
+            <h3 class="font-Blaka text-xl">${role.title}</h3>
+            <p class="font-Fraktur text-sm opacity-90">
+                ${role.description.substring(0, 90)}...
+            </p>
+        </div>
+    `;
+
+        card.addEventListener("click", () => renderMainRole(role));
+        cardsContainer.appendChild(card);
+
+        // Primeiro papel renderizado por padrão
+        if (index === 0) renderMainRole(role);
+    });
+
+    // tentativa de fazer o carrossel andar
+
+    const carousel = document.getElementById("roles-carousel");
+
+    let isDown = false;
+    let startX;
+    let scrollLeft;
+
+    carousel.addEventListener("mousedown", (e) => {
+        isDown = true;
+        carousel.classList.add("active");
+        startX = e.pageX - carousel.offsetLeft;
+        scrollLeft = carousel.scrollLeft;
+    });
+
+    carousel.addEventListener("mouseleave", () => {
+        isDown = false;
+    });
+
+    carousel.addEventListener("mouseup", () => {
+        isDown = false;
+    });
+
+    carousel.addEventListener("mousemove", (e) => {
+        if (!isDown) return;
+        e.preventDefault();
+
+        const x = e.pageX - carousel.offsetLeft;
+        const walk = (x - startX) * 1.5; // velocidade do arraste
+        carousel.scrollLeft = scrollLeft - walk;
+    });
+
+    // Aquela trocadazinha do mapa para o diagrama
+
+    const btnMap = document.getElementById("btn-map");
+    const btnDiagram = document.getElementById("btn-diagram");
+
+    const mapView = document.getElementById("map-view");
+    const diagramView = document.getElementById("diagram-view");
+
+    btnMap.addEventListener("click", () => {
+        btnMap.classList.add("active-toggle");
+        btnDiagram.classList.remove("active-toggle");
+
+        mapView.classList.add("active-view");
+        diagramView.classList.remove("active-view");
+    });
+
+    btnDiagram.addEventListener("click", () => {
+        btnDiagram.classList.add("active-toggle");
+        btnMap.classList.remove("active-toggle");
+
+        diagramView.classList.add("active-view");
+        mapView.classList.remove("active-view");
+    });
+
+    const activities = [
+        {
+            title: "Coleta de Requisitos",
+            subtitle: "Contato com o Cliente",
+            description: "Levantamento detalhado das necessidades, expectativas e objetivos do cliente para orientar todo o desenvolvimento.",
+            image: "images/atividades/requisitos.png",
+            details: [
+                "Reuniões com stakeholders",
+                "Entendimento do contexto",
+                "Registro estruturado das informações"
+            ]
+        },
+        {
+            title: "Definição de Escopo",
+            subtitle: "Planejamento Estratégico",
+            description: "Priorização dos requisitos e definição clara do que será desenvolvido em cada ciclo.",
+            image: "images/atividades/escopo.png",
+            details: [
+                "Análise de valor e esforço",
+                "Organização do backlog",
+                "Definição de prioridades"
+            ]
+        },
+        {
+            title: "Documentação",
+            subtitle: "Fundação do Projeto",
+            description: "Construção da documentação essencial para garantir entendimento e continuidade do sistema.",
+            image: "images/atividades/documentacao.png",
+            details: [
+                "Registro de decisões técnicas",
+                "Arquitetura do sistema",
+                "Manuais e guias"
+            ]
+        },
+        {
+            title: "Design da Interface",
+            subtitle: "Experiência do Usuário",
+            description: "Criação de protótipos e layouts focados em usabilidade e clareza visual.",
+            image: "images/atividades/design.png",
+            details: [
+                "Wireframes",
+                "Mockups",
+                "Validação visual"
+            ]
+        },
+        {
+            title: "Desenvolvimento",
+            subtitle: "Construção do Incremento",
+            description: "Implementação das funcionalidades seguindo padrões técnicos definidos.",
+            image: "images/atividades/desenvolvimento.png",
+            details: [
+                "Codificação",
+                "Boas práticas",
+                "Incrementos funcionais"
+            ]
+        },
+        {
+            title: "Testes",
+            subtitle: "Garantia de Qualidade",
+            description: "Validação do sistema por meio de testes manuais e automatizados.",
+            image: "images/atividades/testes.png",
+            details: [
+                "Testes unitários",
+                "Testes de integração",
+                "Critérios de aceitação"
+            ]
+        },
+        {
+            title: "Revisão e Retrospectiva",
+            subtitle: "Evolução Contínua",
+            description: "Avaliação do incremento entregue e reflexão sobre melhorias no processo.",
+            image: "images/atividades/revisao.png",
+            details: [
+                "Feedback do cliente",
+                "Análise do processo",
+                "Planejamento de melhorias"
+            ]
+        }
+    ];
+
+    let currentActivity = 0;
+
+    const leftCard = document.getElementById("activity-left");
+    const centerCard = document.getElementById("activity-center");
+    const rightCard = document.getElementById("activity-right");
+
+    function renderActivityCard(element, activity) {
+        if (!activity) {
+            element.style.opacity = 0;
+            return;
+        }
+
+        element.style.opacity = 1;
+        element.innerHTML = `
+        <div class="card-ribbon"></div>
+
+        <img src="${activity.image}" alt="${activity.title}" class="role-card-image" />
+
+        <div class="role-card-content">
+            <div class="card-title-row">
+                <span class="card-gem"></span>
+                <h3 class="font-epic text-2xl text-gold tracking-wide">
+                    ${activity.title}
+                </h3>
+                <span class="card-gem"></span>
+            </div>
+
+            <p class="italic mb-4 text-sm opacity-90">
+                ${activity.subtitle}
+            </p>
+
+            <div class="card-divider"></div>
+
+            <p class="mb-4 text-sm leading-relaxed">
+                ${activity.description}
+            </p>
+
+            <div class="card-divider faint"></div>
+
+            <h4 class="font-semibold mb-2 text-sm tracking-wide">
+                Pontos-chave
+            </h4>
+
+            <ul class="list-disc list-inside space-y-1 text-sm">
+                ${activity.details.map(d => `<li>${d}</li>`).join("")}
+            </ul>
+
+            <div class="card-seal">S A G A</div>
+        </div>
+    `;
+    }
+
+    function updateActivities() {
+        renderActivityCard(leftCard, activities[currentActivity - 1]);
+        renderActivityCard(centerCard, activities[currentActivity]);
+        renderActivityCard(rightCard, activities[currentActivity + 1]);
+    }
+
+    function nextActivity() {
+        if (currentActivity < activities.length - 1) {
+            currentActivity++;
+            updateActivities();
+        }
+    }
+
+    function prevActivity() {
+        if (currentActivity > 0) {
+            currentActivity--;
+            updateActivities();
+        }
+    }
+
+    // Inicialização
+    updateActivities();
+
+</script>
+
+</html>
