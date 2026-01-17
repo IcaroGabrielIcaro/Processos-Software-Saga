@@ -101,6 +101,41 @@
         .view-image:first-child {
             position: relative;
         }
+
+        #roles-carousel,
+        #roles-carousel * {
+            user-select: none;
+            -webkit-user-drag: none;
+        }
+
+        .role-card {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            transition: transform 0.5s ease, opacity 0.5s ease, filter 0.5s ease;
+        }
+
+        /* carta principal */
+        .main-card {
+            transform: translate(-50%, -50%) scale(1.5);
+            z-index: 20;
+        }
+
+        /* cartas atrás */
+        .left-card {
+            transform: translate(-890px, -50%) scale(0.9);
+            opacity: 0.2;
+            filter: brightness(0.5) blur(2px);
+            z-index: 5;
+        }
+
+        .right-card {
+            transform: translate(70px, -50%) scale(0.9);
+            opacity: 0.2;
+            filter: brightness(0.5) blur(2px);
+            z-index: 5;
+        }
     </style>
 
     <script>
@@ -340,8 +375,8 @@
             </div>
 
             <div class="relative -mt-32 z-20 overflow-hidden">
-                <div id="roles-carousel" class="flex gap-8 px-[200px] cursor-grab active:cursor-grabbing select-none">
-                    <div id="role-cards" class="flex gap-6"></div>
+                <div id="roles-carousel" class="flex gap-8 px-[230px] cursor-grab active:cursor-grabbing select-none">
+                    <div id="role-cards" class="flex gap-3"></div>
                 </div>
             </div>
         </section>
@@ -377,33 +412,15 @@
             </div>
         </section>
 
-        <section class="relative w-full mt-32">
-
-            <h2 class="font-Magnificent text-center text-6xl mb-16 text-[#E9E9E9]">
-                Atividades da Jornada
-            </h2>
-
+        <section class="px-8 my-[150px]">
             <div class="relative flex items-center justify-center h-[520px]">
-
-                <!-- Carta esquerda -->
-                <div id="activity-left" class="role-card side-card left-card bg-[#ff0000]"></div>
-
-                <!-- Carta central -->
-                <div id="activity-center" class="role-card main-card z-10 bg-[#ff0000]"></div>
-
-                <!-- Carta direita -->
-                <div id="activity-right" class="role-card side-card right-card bg-[#ff0000]"></div>
-
-                <!-- Controles -->
-                <button onclick="prevActivity()" class="absolute left-10 text-gold text-4xl hover:scale-110 transition">
-                    ◀
-                </button>
-
-                <button onclick="nextActivity()"
-                    class="absolute right-10 text-gold text-4xl hover:scale-110 transition">
-                    ▶
-                </button>
-
+                <div id="card-left" class="role-card side-card left-card"></div>
+                <div id="card-center" class="role-card main-card z-10"></div>
+                <div id="card-right" class="role-card side-card right-card"></div>
+                <button onclick="prevRole()"
+                    class="absolute left-0 text-gold text-3xl px-4 hover:scale-110 transition">◀</button>
+                <button onclick="nextRole()"
+                    class="absolute right-0 text-gold text-3xl px-4 hover:scale-110 transition">▶</button>
             </div>
         </section>
     </main>
@@ -428,6 +445,19 @@
                 "Realizar testes funcionais",
                 "Validar entregas",
                 "Avaliar design, fluxo e comportamento"
+            ]
+        },
+        {
+            title: "Cronista da Ordem",
+            subtitle: "Líder da Documentação",
+            description: "Responsável por registrar, organizar e manter viva a memória do projeto, garantindo que decisões, processos e conhecimentos sejam compreendidos e reutilizados ao longo do tempo.",
+            image: "images/membros/cronista.png",
+            responsibilities: [
+                "Documentar requisitos e decisões técnicas",
+                "Manter guias de uso e manuais do sistema",
+                "Registrar processos e padrões adotados",
+                "Atualizar documentação conforme o projeto evolui",
+                "Apoiar novos membros na compreensão do sistema"
             ]
         },
         {
@@ -502,64 +532,6 @@
         }
     ];
 
-    // const activities = [
-    //     {
-    //         span: "Etapa Inicial",
-    //         title: "Coletar e Documentar Requisitos",
-    //         description: "Entender profundamente as necessidades do cliente, registrando expectativas, prioridades e contexto para guiar toda a jornada do projeto.",
-    //         image: "images/atividades/req.png"
-    //     },
-    //     {
-    //         span: "Planejamento",
-    //         title: "Priorizar e Definir Escopo",
-    //         description: "Decidir o que será desenvolvido em cada ciclo, equilibrando valor de negócio, esforço técnico e dependências.",
-    //         image: "images/atividades/escopo.png"
-    //     },
-    //     {
-    //         span: "Fundação",
-    //         title: "Construção da Documentação",
-    //         description: "Registrar decisões técnicas, arquitetura e informações essenciais para garantir continuidade e manutenção do sistema.",
-    //         image: "images/atividades/doc.png"
-    //     },
-    //     {
-    //         span: "Design",
-    //         title: "Projetar Interface",
-    //         description: "Criar protótipos e layouts focados em usabilidade, clareza e experiência do usuário.",
-    //         image: "images/atividades/ui.png"
-    //     },
-    //     {
-    //         span: "Qualidade",
-    //         title: "Escrever Testes",
-    //         description: "Garantir o funcionamento correto do sistema por meio de testes automatizados e critérios bem definidos.",
-    //         image: "images/atividades/testes.png"
-    //     },
-    //     {
-    //         span: "Execução",
-    //         title: "Desenvolver Incremento",
-    //         description: "Implementar funcionalidades seguindo padrões técnicos e objetivos definidos para o ciclo.",
-    //         image: "images/atividades/dev.png"
-    //     },
-    //     {
-    //         span: "Validação",
-    //         title: "Testar Incremento",
-    //         description: "Avaliar o incremento desenvolvido, verificando comportamento, usabilidade e critérios de aceitação.",
-    //         image: "images/atividades/validacao.png"
-    //     },
-    //     {
-    //         span: "Integração",
-    //         title: "Integrar Incremento",
-    //         description: "Unificar as partes do sistema, resolvendo conflitos e garantindo estabilidade.",
-    //         image: "images/atividades/integracao.png"
-    //     },
-    //     {
-    //         span: "Encerramento",
-    //         title: "Revisão e Retrospectiva",
-    //         description: "Avaliar resultados, coletar feedback e identificar melhorias para a próxima jornada.",
-    //         image: "images/atividades/review.png"
-    //     }
-    // ];
-
-
     // Elementos principais
     const mainImage = document.getElementById("main-role-image");
     const mainTitle = document.getElementById("main-role-title");
@@ -615,34 +587,120 @@
     // tentativa de fazer o carrossel andar
 
     const carousel = document.getElementById("roles-carousel");
+    const track = document.getElementById("role-cards");
 
     let isDown = false;
-    let startX;
-    let scrollLeft;
+    let startX = 0;
+    let currentTranslate = 0;
+    let prevTranslate = 0;
+    let velocity = 0;
+    let lastX = 0;
+    let lastTime = 0;
+    let momentumID = null;
+
+    // pega o padding lateral real do container
+    function getSidePadding() {
+        const styles = getComputedStyle(carousel);
+        return parseFloat(styles.paddingLeft);
+    }
+
+    function getLimits() {
+        const containerWidth = carousel.offsetWidth;
+        const contentWidth = track.scrollWidth;
+        const padding = getSidePadding();
+
+        const maxTranslate = 0; // nunca deixa encostar à esquerda
+        const minTranslate = containerWidth - contentWidth - padding * 2;
+
+        return { minTranslate, maxTranslate };
+    }
 
     carousel.addEventListener("mousedown", (e) => {
         isDown = true;
+        startX = e.clientX;
+        lastX = e.clientX;
+        lastTime = performance.now();
+        velocity = 0;
+
+        if (momentumID) {
+            cancelAnimationFrame(momentumID);
+            momentumID = null;
+        }
+
+        track.style.transition = "none";
         carousel.classList.add("active");
-        startX = e.pageX - carousel.offsetLeft;
-        scrollLeft = carousel.scrollLeft;
     });
 
-    carousel.addEventListener("mouseleave", () => {
-        isDown = false;
-    });
-
-    carousel.addEventListener("mouseup", () => {
-        isDown = false;
-    });
-
-    carousel.addEventListener("mousemove", (e) => {
+    window.addEventListener("mouseup", () => {
         if (!isDown) return;
-        e.preventDefault();
 
-        const x = e.pageX - carousel.offsetLeft;
-        const walk = (x - startX) * 1.5; // velocidade do arraste
-        carousel.scrollLeft = scrollLeft - walk;
+        isDown = false;
+        carousel.classList.remove("active");
+
+        applyMomentum();
     });
+
+    window.addEventListener("mousemove", (e) => {
+        if (!isDown || e.buttons !== 1) return;
+
+        const now = performance.now();
+        const dx = e.clientX - lastX;
+        const dt = now - lastTime;
+
+        velocity = dx / dt; // px por ms
+
+        lastX = e.clientX;
+        lastTime = now;
+
+        const delta = e.clientX - startX;
+        let nextTranslate = prevTranslate + delta;
+
+        const { minTranslate, maxTranslate } = getLimits();
+
+        // resistência elástica
+        if (nextTranslate > maxTranslate) {
+            nextTranslate = maxTranslate + (nextTranslate - maxTranslate) * 0.35;
+        } else if (nextTranslate < minTranslate) {
+            nextTranslate = minTranslate + (nextTranslate - minTranslate) * 0.35;
+        }
+
+        currentTranslate = nextTranslate;
+        track.style.transform = `translateX(${currentTranslate}px)`;
+    });
+
+    function applyMomentum() {
+        const friction = 0.65;      // quanto menor, mais frouxo
+        const minVelocity = 0.02;   // quando parar
+        const { minTranslate, maxTranslate } = getLimits();
+
+        function step() {
+            velocity *= friction;
+
+            let nextTranslate = currentTranslate + velocity * 16; // ~1 frame
+
+            // limites com elasticidade
+            if (nextTranslate > maxTranslate) {
+                nextTranslate = maxTranslate;
+                velocity *= -0.4;
+            } else if (nextTranslate < minTranslate) {
+                nextTranslate = minTranslate;
+                velocity *= -0.4;
+            }
+
+            currentTranslate = nextTranslate;
+            prevTranslate = currentTranslate;
+            track.style.transform = `translateX(${currentTranslate}px)`;
+
+            if (Math.abs(velocity) > minVelocity) {
+                momentumID = requestAnimationFrame(step);
+            } else {
+                velocity = 0;
+                momentumID = null;
+            }
+        }
+
+        momentumID = requestAnimationFrame(step);
+    }
 
     // Aquela trocadazinha do mapa para o diagrama
 
@@ -668,160 +726,141 @@
         mapView.classList.remove("active-view");
     });
 
-    const activities = [
+    // outro carrosssel
+
+    const roles2 = [
         {
-            title: "Coleta de Requisitos",
-            subtitle: "Contato com o Cliente",
-            description: "Levantamento detalhado das necessidades, expectativas e objetivos do cliente para orientar todo o desenvolvimento.",
-            image: "images/atividades/requisitos.png",
-            details: [
-                "Reuniões com stakeholders",
-                "Entendimento do contexto",
-                "Registro estruturado das informações"
-            ]
+            title: "Coletar e Documentar Requisitos com Clientes",
+            subtitle: "Scrum e XP",
+            description: "Conduzir reuniões, entrevistas ou workshops com os stakeholders para entender suas necessidades, expectativas e contexto. Registrar todas as informações de forma estruturada e clara para referência futura.",
+            image: "images/arauto.png"
         },
         {
-            title: "Definição de Escopo",
-            subtitle: "Planejamento Estratégico",
-            description: "Priorização dos requisitos e definição clara do que será desenvolvido em cada ciclo.",
-            image: "images/atividades/escopo.png",
-            details: [
-                "Análise de valor e esforço",
-                "Organização do backlog",
-                "Definição de prioridades"
-            ]
+            title: "Priorizar e Definir Escopo",
+            subtitle: "Scrum e Kanban",
+            description: "Analisar todos os requisitos coletados e decidir o que será implementado, em qual ordem e o que ficará para iterações futuras, considerando valor, esforço e dependências.",
+            image: "images/mago.png"
         },
         {
-            title: "Documentação",
-            subtitle: "Fundação do Projeto",
-            description: "Construção da documentação essencial para garantir entendimento e continuidade do sistema.",
-            image: "images/atividades/documentacao.png",
-            details: [
-                "Registro de decisões técnicas",
-                "Arquitetura do sistema",
-                "Manuais e guias"
-            ]
+            title: "Construção da Documentação do Projeto",
+            subtitle: "XP e Scrum",
+            description: "Criar e manter a documentação essencial do projeto, registrando decisões técnicas, arquitetura, manuais e informações necessárias para manutenção e evolução do sistema.",
+            image: "images/mestre.png"
         },
         {
-            title: "Design da Interface",
-            subtitle: "Experiência do Usuário",
-            description: "Criação de protótipos e layouts focados em usabilidade e clareza visual.",
-            image: "images/atividades/design.png",
-            details: [
-                "Wireframes",
-                "Mockups",
-                "Validação visual"
-            ]
+            title: "Projetar Interface",
+            subtitle: "XP e Kanban",
+            description: "Criar protótipos, wireframes e mockups das telas, com foco na experiência do usuário e na clareza da interface. Validar conceitos visuais antes da implementação para garantir alinhamento com o cliente.",
+            image: "images/guradiao.png"
         },
         {
-            title: "Desenvolvimento",
-            subtitle: "Construção do Incremento",
-            description: "Implementação das funcionalidades seguindo padrões técnicos definidos.",
-            image: "images/atividades/desenvolvimento.png",
-            details: [
-                "Codificação",
-                "Boas práticas",
-                "Incrementos funcionais"
-            ]
+            title: "Escrever Testes",
+            subtitle: "XP",
+            description: "Desenvolver testes automatizados para validar o comportamento do sistema, incluindo testes unitários, de integração e de aceitação, assegurando que cada funcionalidade cumpra os critérios definidos.",
+            image: "images/portal1.png"
         },
         {
-            title: "Testes",
-            subtitle: "Garantia de Qualidade",
-            description: "Validação do sistema por meio de testes manuais e automatizados.",
-            image: "images/atividades/testes.png",
-            details: [
-                "Testes unitários",
-                "Testes de integração",
-                "Critérios de aceitação"
-            ]
+            title: "Desenvolver Incremento",
+            subtitle: "Scrum e XP",
+            description: "Implementar as funcionalidades priorizadas, respeitando os padrões técnicos definidos. Cada incremento representa um avanço concreto na jornada do projeto.",
+            image: "images/ancia.png"
+        },
+        {
+            title: "Testar Incremento",
+            subtitle: "XP e Scrum",
+            description: "Executar testes manuais e automatizados no incremento desenvolvido, avaliando usabilidade, comportamento esperado e aderência aos critérios de aceitação definidos.",
+            image: "images/time1.png"
+        },
+        {
+            title: "Validar Internamente",
+            subtitle: "XP e Kanban",
+            description: "Realizar revisões internas de código, design e funcionalidades, garantindo alinhamento com os requisitos e padrões de qualidade antes da integração final.",
+            image: "images/time1.png"
+        },
+        {
+            title: "Integrar Incremento",
+            subtitle: "XP e Scrum",
+            description: "Integrar todas as partes desenvolvidas em um ambiente único, resolvendo conflitos e garantindo compatibilidade entre componentes antes da entrega.",
+            image: "images/time1.png"
         },
         {
             title: "Revisão e Retrospectiva",
-            subtitle: "Evolução Contínua",
-            description: "Avaliação do incremento entregue e reflexão sobre melhorias no processo.",
-            image: "images/atividades/revisao.png",
-            details: [
-                "Feedback do cliente",
-                "Análise do processo",
-                "Planejamento de melhorias"
-            ]
-        }
+            subtitle: "Scrum e Kanban",
+            description: "Conduzir a revisão do incremento com os stakeholders para coleta de feedback e realizar a retrospectiva com a equipe, refletindo sobre o processo e planejando melhorias para a próxima jornada.",
+            image: "images/time1.png"
+        },
+
     ];
 
-    let currentActivity = 0;
+    let current = 0;
 
-    const leftCard = document.getElementById("activity-left");
-    const centerCard = document.getElementById("activity-center");
-    const rightCard = document.getElementById("activity-right");
-
-    function renderActivityCard(element, activity) {
-        if (!activity) {
+    function renderCard(element, role) {
+        if (!role) {
             element.style.opacity = 0;
             return;
         }
 
         element.style.opacity = 1;
+
+        // limpa apenas classes de estado
+        element.classList.remove("main-card");
+
         element.innerHTML = `
-        <div class="card-ribbon"></div>
+            <div class="flex w-full max-w-[820px] h-[380px] bg-[#0D1219] text-[#E9E9E9]
+                        overflow-hidden rounded-[10px] shadow-xl">
 
-        <img src="${activity.image}" alt="${activity.title}" class="role-card-image" />
+                <div class="w-[40%] h-full overflow-hidden">
+                    <img src="images/membros/time1.png"
+                        alt="${role.title}"
+                        class="w-full h-full object-cover scale-110">
+                </div>
 
-        <div class="role-card-content">
-            <div class="card-title-row">
-                <span class="card-gem"></span>
-                <h3 class="font-epic text-2xl text-gold tracking-wide">
-                    ${activity.title}
-                </h3>
-                <span class="card-gem"></span>
+                <div class="flex-1 px-8 py-8 flex flex-col justify-center gap-4">
+                    <span class="bg-[#D32000] px-2 text-[18px] font-Blaka w-fit">
+                        ${role.subtitle}
+                    </span>
+
+                    <h3 class="font-Magnificent text-4xl">
+                        ${role.title}
+                    </h3>
+
+                    <p class="font-Fraktur text-lg opacity-90">
+                        ${role.description}
+                    </p>
+                </div>
             </div>
-
-            <p class="italic mb-4 text-sm opacity-90">
-                ${activity.subtitle}
-            </p>
-
-            <div class="card-divider"></div>
-
-            <p class="mb-4 text-sm leading-relaxed">
-                ${activity.description}
-            </p>
-
-            <div class="card-divider faint"></div>
-
-            <h4 class="font-semibold mb-2 text-sm tracking-wide">
-                Pontos-chave
-            </h4>
-
-            <ul class="list-disc list-inside space-y-1 text-sm">
-                ${activity.details.map(d => `<li>${d}</li>`).join("")}
-            </ul>
-
-            <div class="card-seal">S A G A</div>
-        </div>
-    `;
+        `;
     }
 
-    function updateActivities() {
-        renderActivityCard(leftCard, activities[currentActivity - 1]);
-        renderActivityCard(centerCard, activities[currentActivity]);
-        renderActivityCard(rightCard, activities[currentActivity + 1]);
+    function updateCards() {
+        const left = document.getElementById("card-left");
+        const center = document.getElementById("card-center");
+        const right = document.getElementById("card-right");
+
+        renderCard(center, roles2[current]);
+        renderCard(left, roles2[current - 1]);
+        renderCard(right, roles2[current + 1]);
+
+        center.classList.add("main-card");
     }
 
-    function nextActivity() {
-        if (currentActivity < activities.length - 1) {
-            currentActivity++;
-            updateActivities();
+    function nextRole() {
+        if (current < roles2.length - 1) {
+            current++;
+            updateCards();
         }
     }
 
-    function prevActivity() {
-        if (currentActivity > 0) {
-            currentActivity--;
-            updateActivities();
+    function prevRole() {
+        if (current > 0) {
+            current--;
+            updateCards();
         }
     }
 
-    // Inicialização
-    updateActivities();
+    document.addEventListener("DOMContentLoaded", () => {
+        updateCards();
+    });
 
 </script>
 
