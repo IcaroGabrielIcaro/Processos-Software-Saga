@@ -118,21 +118,21 @@
 
         /* carta principal */
         .main-card {
-            transform: translate(-50%, -50%) scale(1.5);
+            transform: translate(-50%, -50%) scale(1.8);
             z-index: 20;
         }
 
         /* cartas atrás */
         .left-card {
-            transform: translate(-890px, -50%) scale(0.9);
-            opacity: 0.2;
+            transform: translate(-350px, -50%) scale(0.85);
+            opacity: 0.25;
             filter: brightness(0.5) blur(2px);
             z-index: 5;
         }
 
         .right-card {
-            transform: translate(70px, -50%) scale(0.9);
-            opacity: 0.2;
+            transform: translate(-40px, -50%) scale(0.85);
+            opacity: 0.25;
             filter: brightness(0.5) blur(2px);
             z-index: 5;
         }
@@ -390,37 +390,27 @@
             O Desenrolar da Missao
         </h1>
 
-        <section class="relative my-16 max-w-6xl mx-auto px-6 md:px-0">
-
-            <div class="flex justify-center mb-8 gap-2">
-                <button id="btn-map" class="toggle-btn active-toggle">
-                    Mapa
-                </button>
-
-                <button id="btn-diagram" class="toggle-btn">
-                    Diagrama
-                </button>
-            </div>
-
-            <div class="relative w-full">
-
-                <img id="map-view" src="images/diagrama_mapa.png" alt="imagem diagrama mapa"
-                    class="view-image active-view" />
-
-                <img id="diagram-view" src="images/diagrama.png" alt="imagem diagrama" class="view-image" />
-
-            </div>
-        </section>
-
-        <section class="px-8 my-[150px]">
-            <div class="relative flex items-center justify-center h-[520px]">
-                <div id="card-left" class="role-card side-card left-card"></div>
-                <div id="card-center" class="role-card main-card z-10"></div>
-                <div id="card-right" class="role-card side-card right-card"></div>
-                <button onclick="prevRole()"
-                    class="absolute left-0 text-gold text-3xl px-4 hover:scale-110 transition">◀</button>
-                <button onclick="nextRole()"
-                    class="absolute right-0 text-gold text-3xl px-4 hover:scale-110 transition">▶</button>
+        <section class="relative mx-auto my-24 px-6">
+            <div class="flex items-center">
+                <div class="w-[800px]">
+                    <div class="flex justify-center mb-8 gap-2">
+                        <button id="btn-map" class="toggle-btn active-toggle">Mapa</button>
+                        <button id="btn-diagram" class="toggle-btn">Diagrama</button>
+                    </div>
+                    <div class="relative w-full">
+                        <img id="map-view" src="images/diagrama_mapa.png" alt="imagem diagrama mapa" class="view-image active-view" />
+                        <img id="diagram-view" src="images/diagrama.png" alt="imagem diagrama" class="view-image" />
+                    </div>
+                </div>
+                <div class="w-[800px]">
+                    <div class="relative flex items-center justify-center h-[520px]">
+                        <div id="card-left" class="role-card side-card left-card"></div>
+                        <div id="card-center" class="role-card main-card z-10"></div>
+                        <div id="card-right" class="role-card side-card right-card"></div>
+                        <button onclick="prevRole()" class="absolute left-0 text-gold text-3xl px-4 hover:scale-110 transition">◀</button>
+                        <button onclick="nextRole()" class="absolute right-0 text-gold text-3xl px-4 hover:scale-110 transition">▶</button>
+                    </div>
+                </div>
             </div>
         </section>
     </main>
@@ -806,27 +796,15 @@
         element.classList.remove("main-card");
 
         element.innerHTML = `
-            <div class="flex w-full max-w-[820px] h-[380px] bg-[#0D1219] text-[#E9E9E9]
-                        overflow-hidden rounded-[10px] shadow-xl">
-
+            <div class="flex w-full max-w-[520px] h-[260px] bg-[#0D1219] text-[#E9E9E9] overflow-hidden rounded-[10px] shadow-xl">
                 <div class="w-[40%] h-full overflow-hidden">
-                    <img src="images/membros/time1.png"
-                        alt="${role.title}"
-                        class="w-full h-full object-cover scale-110">
+                    <img src="images/membros/time1.png" alt="${role.title}" class="w-full h-full object-cover scale-110">
                 </div>
 
                 <div class="flex-1 px-8 py-8 flex flex-col justify-center gap-4">
-                    <span class="bg-[#D32000] px-2 text-[18px] font-Blaka w-fit">
-                        ${role.subtitle}
-                    </span>
-
-                    <h3 class="font-Magnificent text-4xl">
-                        ${role.title}
-                    </h3>
-
-                    <p class="font-Fraktur text-lg opacity-90">
-                        ${role.description}
-                    </p>
+                    <span class="bg-[#D32000] px-2 text-[16px] font-Blaka w-fit">${role.subtitle}</span>
+                    <h3 class="font-Magnificent text-3xl">${role.title}</h3>
+                    <p class="font-Fraktur text-base opacity-90">${role.description}</p>
                 </div>
             </div>
         `;
