@@ -107,51 +107,49 @@
             -webkit-user-drag: none;
         }
 
-        .role-card {
-            position: absolute;
-            left: 50%;
-            top: 50%;
-            transform: translate(-50%, -50%);
-            transition: transform 0.5s ease, opacity 0.5s ease, filter 0.5s ease;
-        }
-
-        /* carta principal */
-        .main-card {
-            transform: translate(-50%, -50%) scale(1.8);
-            z-index: 20;
-        }
-
-        /* cartas atrás */
-        .left-card {
-            transform: translate(-350px, -50%) scale(0.85);
-            opacity: 0.25;
-            filter: brightness(0.5) blur(2px);
-            z-index: 5;
-        }
-
-        .right-card {
-            transform: translate(-40px, -50%) scale(0.85);
-            opacity: 0.25;
-            filter: brightness(0.5) blur(2px);
-            z-index: 5;
-        }
-
         .left-mask {
-            background: linear-gradient(
-                to right,
-                #0D1219 0%,
-                rgba(13, 18, 25, 0.85) 30%,
-                rgba(13, 18, 25, 0.4) 55%,
-                rgba(13, 18, 25, 0) 75%
-            );
+            background: linear-gradient(to right,
+                    #0D1219 0%,
+                    rgba(13, 18, 25, 0.85) 30%,
+                    rgba(13, 18, 25, 0.4) 55%,
+                    rgba(13, 18, 25, 0) 75%);
         }
 
         .hero-title {
-            color: #D6B15A; /* gold */
+            color: #D6B15A;
+            /* gold */
             text-shadow:
                 0 4px 12px rgba(0, 0, 0, 0.45),
                 0 0 2px rgba(0, 0, 0, 0.6);
             -webkit-text-stroke: 2px rgba(0, 0, 0, 0.35);
+        }
+
+        .activity-card {
+            position: absolute;
+            width: 520px;
+            height: 320px;
+            background: #0D1219;
+            border-radius: 10px;
+            transition: transform 0.2s ease, opacity 0.2s ease;
+            overflow: hidden;
+        }
+
+        .card-left {
+            transform: translateX(-190px) scale(0.85);
+            opacity: 0.35;
+            z-index: 5;
+        }
+
+        .card-center {
+            transform: translateX(0) scale(1.3);
+            opacity: 1;
+            z-index: 10;
+        }
+
+        .card-right {
+            transform: translateX(190px) scale(0.85);
+            opacity: 0.35;
+            z-index: 5;
         }
     </style>
 
@@ -283,7 +281,7 @@
         </div>
 
         <section class="relative w-full mt-20">
-            <img src="images/background/banner_03.jpg" alt="Saga Geral Image" class="w-full h-[80vh] object-cover"/>
+            <img src="images/background/banner_03.jpg" alt="Saga Geral Image" class="w-full h-[80vh] object-cover" />
             <div class="absolute inset-0 bg-black/40"></div>
             <h1 class="absolute inset-0 flex items-center justify-center
                     font-Magnificent text-5xl md:text-7xl xl:text-[128px]
@@ -296,7 +294,8 @@
 
 
         <section class="mt-24 px-6 md:px-24">
-            <div class="font-BerkshireSwash max-w-4xl mx-auto text-justify leading-relaxed space-y-8 text-xl md:text-2xl">
+            <div
+                class="font-BerkshireSwash max-w-4xl mx-auto text-justify leading-relaxed space-y-8 text-xl md:text-2xl">
                 <p class="text-2xl md:text-3xl font-semibold text-center mb-12">
                     Existe uma lenda antiga, de muito antes de existir um caminho claro.
                 </p>
@@ -376,7 +375,8 @@
                 class="w-full h-[310px] object-cover object-[center_10%]" />
         </section>
 
-        <h1 class="font-Magnificent text-5xl md:text-7xl xl:text-[128px] drop-shadow-lg leading-none text-center mt-10 mb-[18px]">
+        <h1
+            class="font-Magnificent text-5xl md:text-7xl xl:text-[128px] drop-shadow-lg leading-none text-center mt-10 mb-[18px]">
             Classes do Processo
         </h1>
 
@@ -386,10 +386,13 @@
                 <div class="absolute inset-0 left-mask"></div>
                 <div class="absolute inset-0 bg-black/50"></div>
                 <div class="relative z-10 h-full flex flex-col justify-center px-16 text-[#E9E9E9]">
-                    <span id="main-role-subtitle" class="inline-block bg-[#D32000] px-1 text-lg font-Blaka w-fit mb-[70px]"></span>
+                    <span id="main-role-subtitle"
+                        class="inline-block bg-[#D32000] px-1 text-lg font-Blaka w-fit mb-[70px]"></span>
                     <h2 id="main-role-title" class="font-Magnificent text-6xl xl:text-[96px] leading-none mb-6"></h2>
-                    <p id="main-role-description" class="font-BerkshireSwash text-xl leading-relaxed mb-6 max-w-4xl ml-[100px]"></p>
-                    <ul id="main-role-responsibilities" class="list-disc pl-6 space-y-2 text-lg font-BerkshireSwash ml-[100px]"></ul>
+                    <p id="main-role-description"
+                        class="font-BerkshireSwash text-xl leading-relaxed mb-6 max-w-4xl ml-[100px]"></p>
+                    <ul id="main-role-responsibilities"
+                        class="list-disc pl-6 space-y-2 text-lg font-BerkshireSwash ml-[100px]"></ul>
                 </div>
             </div>
 
@@ -409,25 +412,37 @@
             O Desenrolar da Missao
         </h1>
 
-        <section class="relative mx-auto my-24 px-6">
-            <div class="flex items-center">
-                <div class="w-[800px]">
-                    <div class="flex justify-center mb-8 gap-2">
-                        <button id="btn-map" class="toggle-btn active-toggle pt-2 pb-1 px-3">Mapa</button>
-                        <button id="btn-diagram" class="toggle-btn pt-2 pb-1 px-3">Diagrama</button>
+        <section class="relative my-24 px-4">
+            <div class="max-w-[1700px] mx-auto">
+                <div class="flex gap-12 justify-center items-center">
+                    <div class="w-full max-w-[900px]">
+                        <div class="flex justify-center mb-6 gap-2">
+                            <button id="btn-map" class="toggle-btn active-toggle pt-2 pb-1 px-3">Mapa</button>
+                            <button id="btn-diagram" class="toggle-btn pt-2 pb-1 px-3">Diagrama</button>
+                        </div>
+
+                        <div class="relative w-full">
+                            <img id="map-view" src="images/diagrama_mapa.png" class="view-image active-view"
+                                alt="imagem diagrama mapa" />
+                            <img id="diagram-view" src="images/diagrama.png" class="view-image" alt="imagem diagrama" />
+                        </div>
                     </div>
-                    <div class="relative w-full">
-                        <img id="map-view" src="images/diagrama_mapa.png" alt="imagem diagrama mapa" class="view-image active-view" />
-                        <img id="diagram-view" src="images/diagrama.png" alt="imagem diagrama" class="view-image" />
-                    </div>
-                </div>
-                <div class="w-[800px]">
-                    <div class="relative flex items-center justify-center h-[520px]">
-                        <div id="card-left" class="role-card side-card left-card"></div>
-                        <div id="card-center" class="role-card main-card z-10"></div>
-                        <div id="card-right" class="role-card side-card right-card"></div>
-                        <button onclick="prevRole()" class="absolute left-0 text-gold text-3xl px-4 hover:scale-110 transition">◀</button>
-                        <button onclick="nextRole()" class="absolute right-0 text-gold text-3xl px-4 hover:scale-110 transition">▶</button>
+
+                    <div class="w-full max-w-[900px] flex flex-col items-center">
+                        <div class="relative w-full h-[420px] flex items-center justify-center overflow-hidden">
+                            <div id="card-left" class="activity-card card-left"></div>
+                            <div id="card-center" class="activity-card card-center"></div>
+                            <div id="card-right" class="activity-card card-right"></div>
+                        </div>
+                        <div class="flex gap-6 mt-10">
+                            <button onclick="prevActivity()" class="px-10 py-4 bg-[#0D1219] border border-[#D32000] text-[#D32000] flex items-center gap-2 hover:bg-[#141b26] transition">
+                                ◀
+                            </button>
+
+                            <button onclick="nextActivity()" class="px-10 py-4 bg-[#0D1219] border border-[#D32000] text-[#D32000] flex items-center gap-2 hover:bg-[#141b26] transition">
+                                ▶
+                            </button>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -737,7 +752,7 @@
 
     // outro carrosssel
 
-    const roles2 = [
+    const activities = [
         {
             title: "Coletar e Documentar Requisitos com Clientes",
             subtitle: "Scrum e XP",
@@ -798,67 +813,86 @@
             description: "Conduzir a revisão do incremento com os stakeholders para coleta de feedback e realizar a retrospectiva com a equipe, refletindo sobre o processo e planejando melhorias para a próxima jornada.",
             image: "images/time1.png"
         },
-
     ];
 
-    let current = 0;
+    let currentActivity = 0;
 
-    function renderCard(element, role) {
-        if (!role) {
-            element.style.opacity = 0;
-            return;
-        }
+    function getIndex(index) {
+        const total = activities.length;
+        return (index + total) % total;
+    }
 
-        element.style.opacity = 1;
-
-        // limpa apenas classes de estado
-        element.classList.remove("main-card");
+    function renderActivityCard(element, activity) {
+        if (!activity) return;
 
         element.innerHTML = `
-            <div class="flex w-full max-w-[520px] h-[260px] bg-[#0D1219] text-[#E9E9E9] overflow-hidden rounded-[10px] shadow-xl">
+            <div class="w-full h-full flex">
                 <div class="w-[40%] h-full overflow-hidden">
-                    <img src="images/membros/time1.png" alt="${role.title}" class="w-full h-full object-cover scale-110">
+                    <img src="images/membros2/guardiao.png" alt="${activity.title}" class="w-full h-full object-cover"/>
                 </div>
 
-                <div class="flex-1 px-8 py-8 flex flex-col justify-center gap-4">
-                    <span class="bg-[#D32000] px-2 text-[16px] font-Blaka w-fit">${role.subtitle}</span>
-                    <h3 class="font-Magnificent text-3xl">${role.title}</h3>
-                    <p class="font-Fraktur text-base opacity-90">${role.description}</p>
+                <div class="w-[60%] h-full flex flex-col justify-center px-4">
+                    <span id="main-role-subtitle" class="text-[#E9E9E9] inline-block bg-[#D32000] px-1 text-[15px] font-Blaka w-fit mb-[8px]">
+                        ${activity.subtitle}
+                    </span>
+                    <h3 class="text-[#E9E9E9] text-[20px] font-semibold leading-tight mb-4">
+                        ${activity.title}
+                    </h3>
+                    <p class="text-[#CFCFCF] text-[12px] leading-relaxed">
+                        ${activity.description}
+                    </p>
                 </div>
             </div>
         `;
     }
 
-    function updateCards() {
-        const left = document.getElementById("card-left");
-        const center = document.getElementById("card-center");
-        const right = document.getElementById("card-right");
+    function updateActivities() {
+        console.log("activities:", activities);
 
-        renderCard(center, roles2[current]);
-        renderCard(left, roles2[current - 1]);
-        renderCard(right, roles2[current + 1]);
+        const left = activities[getIndex(currentActivity - 1)];
+        const center = activities[getIndex(currentActivity)];
+        const right = activities[getIndex(currentActivity + 1)];
 
-        center.classList.add("main-card");
+        renderActivityCard(document.getElementById("card-left"), left);
+        renderActivityCard(document.getElementById("card-center"), center);
+        renderActivityCard(document.getElementById("card-right"), right);
     }
 
-    function nextRole() {
-        if (current < roles2.length - 1) {
-            current++;
-            updateCards();
-        }
+    function nextActivity() {
+        // anima as posições
+        cards[0].className = "activity-card card-right";
+        cards[1].className = "activity-card card-left";
+        cards[2].className = "activity-card card-center";
+
+        setTimeout(() => {
+            currentActivity++;
+            updateActivities();
+
+            // reorganiza a ordem lógica
+            cards.push(cards.shift());
+        }, 50);
     }
 
-    function prevRole() {
-        if (current > 0) {
-            current--;
-            updateCards();
-        }
+    function prevActivity() {
+        cards[0].className = "activity-card card-center";
+        cards[1].className = "activity-card card-right";
+        cards[2].className = "activity-card card-left";
+
+        setTimeout(() => {
+            currentActivity--;
+            updateActivities();
+
+            cards.unshift(cards.pop());
+        }, 50);
     }
 
-    document.addEventListener("DOMContentLoaded", () => {
-        updateCards();
-    });
+    document.addEventListener("DOMContentLoaded", updateActivities);
 
+    const cards = [
+        document.getElementById("card-left"),
+        document.getElementById("card-center"),
+        document.getElementById("card-right")
+    ];
 </script>
 
 </html>
