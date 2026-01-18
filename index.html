@@ -457,7 +457,8 @@
                         class="inline-block bg-[#D32000] px-1 text-lg font-Blaka w-fit mb-[70px]"></span>
                     <h2 id="main-role-title" class="font-Magnificent text-6xl xl:text-[96px] leading-none mb-6"></h2>
                     <p id="main-role-description"
-                        class="font-BerkshireSwash text-xl leading-relaxed mb-6 max-w-4xl ml-[100px]"></p>
+                        class="font-BerkshireSwash text-xl leading-relaxed max-w-4xl ml-[100px] mb-1"></p>
+                    <span id="main-funcao" class="text-[12px] ml-[100px] text-[#D32000] mb-6 max-w-[900px]"></span>
                     <ul id="main-role-responsibilities"
                         class="list-disc pl-6 space-y-2 text-lg font-BerkshireSwash ml-[100px]"></ul>
                 </div>
@@ -540,6 +541,7 @@
             title: "Arauto da Missao",
             subtitle: "Representante do Cliente",
             description: "É o membro do time que possui maior proximidade com o cliente e compreende claramente suas necessidades, prioridades e expectativas em relação ao sistema.",
+            funcao: "Coletar e documentar requisitos com clientes, priorizar e definir escopo, construção da documentação do projeto, escrever testes, revisão e retrospectiva",
             image: "images/membros2/arauto.png",
             responsibilities: [
                 "Centralizar o entendimento dos requisitos do cliente",
@@ -566,6 +568,7 @@
             title: "Mago do Figma",
             subtitle: "Designer Técnico",
             description: "Responsável por definir a identidade visual do sistema e garantir consistência estética durante toda a jornada.",
+            funcao: "Projetar interface, desenvolver incremento, testar incremento, validar internamente, revisão e retrospectiva",
             image: "images/membros2/mago.jpg",
             responsibilities: [
                 "Criar layouts e designs",
@@ -578,6 +581,7 @@
             title: "Mestre da Fachada",
             subtitle: "Líder Front-end",
             description: "Garante organização, qualidade e sustentabilidade do código front-end.",
+            funcao: "Desenvolver incremento, testar incremento, validar internamente, revisão e retrospectiva",
             image: "images/membros2/mestre.png",
             responsibilities: [
                 "Definir estrutura do front",
@@ -590,6 +594,7 @@
             title: "Guardiao do Nucleo",
             subtitle: "Líder Back-end",
             description: "Responsável pela estrutura, organização e qualidade do código do servidor.",
+            funcao: "Desenvolver incremento, testar incremento, validar internamente, revisão e retrospectiva",
             image: "images/membros2/guardiao.png",
             responsibilities: [
                 "Definir estrutura do back-end",
@@ -602,6 +607,7 @@
             title: "Forjador de Portais",
             subtitle: "Lider de Operaçoes",
             description: "Prepara a infraestrutura para execução e disponibilização do sistema.",
+            funcao: "Integrar incremento, revisão e retrospectiva",
             image: "images/membros2/forjador.png",
             responsibilities: [
                 "Configurar ambientes",
@@ -614,6 +620,7 @@
             subtitle: "Revisor Senior / Mentor",
             description: "Figura experiente que orienta e valida decisões técnicas e metodológicas.",
             image: "images/membros2/anciao.png",
+            funcao: "Revisão e retrospectiva",
             responsibilities: [
                 "Avaliar soluções técnicas",
                 "Identificar melhorias",
@@ -624,6 +631,7 @@
             title: "Companheiros da Jornada",
             subtitle: "Desenvolvedores",
             description: "Membros ativos do time que constroem o sistema colaborativamente.",
+            funcao: "Desenvolver incremento, testar incremento, revisão e retrospectiva",
             image: "images/membros2/companheiros.png",
             responsibilities: [
                 "Implementar funcionalidades",
@@ -639,6 +647,7 @@
     const mainTitle = document.getElementById("main-role-title");
     const mainSubtitle = document.getElementById("main-role-subtitle");
     const mainDescription = document.getElementById("main-role-description");
+    const mainFuncao = document.getElementById("main-funcao");
     const mainResponsibilities = document.getElementById("main-role-responsibilities");
     const cardsContainer = document.getElementById("role-cards");
 
@@ -648,6 +657,7 @@
         mainTitle.textContent = role.title;
         mainSubtitle.textContent = role.subtitle;
         mainDescription.textContent = role.description;
+        mainFuncao.textContent = role.funcao;
 
         mainResponsibilities.innerHTML = "";
         role.responsibilities.forEach(item => {
